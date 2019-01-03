@@ -16,7 +16,13 @@ class App extends Component {
       playerNumber: 1,
       missionType: 'objective',
       enemyRace: '',
-      difficulty: ''
+      difficulty: '',
+      loadout: [
+        { name: 'Player 1', weapon: null, perk: null, stratagems: [] },
+        { name: 'Player 2', weapon: null, perk: null, stratagems: [] },
+        { name: 'Player 3', weapon: null, perk: null, stratagems: [] },
+        { name: 'Player 4', weapon: null, perk: null, stratagems: [] },
+      ]
     };
 
     this.setPlayerNumber = this.setPlayerNumber.bind(this);
@@ -52,21 +58,102 @@ class App extends Component {
     //setting up the database
     let db = lowDb(new lowDbMemory());
     db.defaults(JSON.parse(JSON.stringify(dbJson))).write();
+    let rawData = null;
+
+    //update loadout into database
+    const updateLoadout = (codes) => {
+      _.forEach(codes, function (code) {
+
+        let loadout = db.get('loadouts').find({ code: code }).value();
+
+        // db.get('loadouts').find({ code: loadout.code }).assign({ taken: loadout.taken + 1 }).write();
+
+        db.get('selectedLoadouts').push(loadout).write();
+      });
+    }
+
+    //assign loadout to player
+    const assignLoadout = (playerNumber) => {
+      let selectedLoadouts = [
+        { name: 'Player 1', weapon: null, perk: null, stratagems: [] },
+        { name: 'Player 2', weapon: null, perk: null, stratagems: [] },
+        { name: 'Player 3', weapon: null, perk: null, stratagems: [] },
+        { name: 'Player 4', weapon: null, perk: null, stratagems: [] },
+      ];
+
+      let loadouts = null;
+      let countPlayer = 0;
+
+      countPlayer = 0;
+      loadouts = db.get('selectedLoadouts').filter({ type1: 'weapon-main' }).value();
+      _.forEach(loadouts, function (loadout) {
+        selectedLoadouts[countPlayer]['weapon'] = loadout.code;
+        countPlayer++;
+      });
+
+      countPlayer = 0;
+      loadouts = db.get('selectedLoadouts').filter({ type1: 'perks' }).value();
+      _.forEach(loadouts, function (loadout) {
+        selectedLoadouts[countPlayer]['perk'] = loadout.code;
+        countPlayer++;
+      });
+
+      countPlayer = 0;
+      loadouts = db.get('selectedLoadouts').filter({ type1: 'stratagems' }).value();
+      _.forEach(loadouts, function (loadout) {
+        selectedLoadouts[countPlayer % playerNumber]['stratagems'].push(loadout.code);
+        countPlayer++;
+      });
+
+      // console.log(loadouts);
+      // console.log(selectedLoadouts);
+      return selectedLoadouts;
+    }
 
     //get random weapons
     let weapons = db.get('loadouts').filter({ type1: 'weapon-main' }).value();
     let selectedWeapons = randomizer.sample(_.map(weapons, 'code'), this.state.playerNumber, false);
-    console.log(selectedWeapons);
+    // console.log(selectedWeapons);
+    updateLoadout(selectedWeapons);
 
     //get random perks
     let perks = db.get('loadouts').filter({ type1: 'perks' }).value();
     let selectedPerks = randomizer.sample(_.map(perks, 'code'), this.state.playerNumber, false);
-    console.log(selectedPerks);
+    // console.log(selectedPerks);
+    updateLoadout(selectedPerks);
 
     //get random stratagem
+    //will not give Resupply & Resupply Pack (this will be done later)
+    updateLoadout(['resupply']);
     let stratagems = db.get('loadouts').filter({ type1: 'stratagems' }).value();
-    let selectedStratagems = randomizer.sample(_.map(stratagems, 'code'), (this.state.playerNumber * 4), false);
-    console.log(selectedStratagems);
+    let selectedStratagems = randomizer.sample(_.map(stratagems, 'code'), ((this.state.playerNumber * 4) - 1), true);
+    // console.log(selectedStratagems);
+    updateLoadout(selectedStratagems);
+
+    /**
+     * decide resupply stratagem
+     * CASE1, if atr_resupply > 0 then give 1 resupply
+     * CASE2, if sum of atr_resupply >= 400 then give 1 resupply or bag
+     * 
+     * this to be executed after random stratagem (eg: Commando require resupply)
+     * will remove 1 or 2 stratagems depend on CASE1 or CASE2
+     * stratagem remove is atr_resupply is NULL
+     */
+    // rawData = db.get('loadouts').filter((record) => {
+    //   return record.taken > 0 && record.atr_resupply > 0
+    // }).value();
+    // console.log(_.map(rawData, 'code'));
+    // rawData = _.map(rawData, 'atr_resupply');
+    // rawData = _.map(rawData, _.parseInt);
+    // rawData = _.sum(rawData);
+    // console.log(rawData);
+    // if (rawData > 0) {
+    // }
+    // if (this.state.playerNumber > 2 && rawData >= 400) {
+    // }
+
+    //list of loadouts assigned
+    this.setState({ loadout: assignLoadout(this.state.playerNumber) });
   }
 
   render() {
@@ -158,45 +245,45 @@ class App extends Component {
             <tbody>
               <tr>
                 <th scope="row">Weapon</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{this.state.loadout[0].weapon}</td>
+                <td>{this.state.loadout[1].weapon}</td>
+                <td>{this.state.loadout[2].weapon}</td>
+                <td>{this.state.loadout[3].weapon}</td>
               </tr>
               <tr>
                 <th scope="row">Perk</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{this.state.loadout[0].perk}</td>
+                <td>{this.state.loadout[1].perk}</td>
+                <td>{this.state.loadout[2].perk}</td>
+                <td>{this.state.loadout[3].perk}</td>
               </tr>
               <tr>
                 <th scope="row">Loadout 1</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{this.state.loadout[0].stratagems[0]}</td>
+                <td>{this.state.loadout[1].stratagems[0]}</td>
+                <td>{this.state.loadout[2].stratagems[0]}</td>
+                <td>{this.state.loadout[3].stratagems[0]}</td>
               </tr>
               <tr>
                 <th scope="row">Loadout 2</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{this.state.loadout[0].stratagems[1]}</td>
+                <td>{this.state.loadout[1].stratagems[1]}</td>
+                <td>{this.state.loadout[2].stratagems[1]}</td>
+                <td>{this.state.loadout[3].stratagems[1]}</td>
               </tr>
               <tr>
                 <th scope="row">Loadout 3</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{this.state.loadout[0].stratagems[2]}</td>
+                <td>{this.state.loadout[1].stratagems[2]}</td>
+                <td>{this.state.loadout[2].stratagems[2]}</td>
+                <td>{this.state.loadout[3].stratagems[2]}</td>
               </tr>
               <tr>
                 <th scope="row">Loadout 4</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{this.state.loadout[0].stratagems[3]}</td>
+                <td>{this.state.loadout[1].stratagems[3]}</td>
+                <td>{this.state.loadout[2].stratagems[3]}</td>
+                <td>{this.state.loadout[3].stratagems[3]}</td>
               </tr>
             </tbody>
           </Table>
