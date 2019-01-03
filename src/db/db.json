@@ -1,0 +1,532 @@
+{
+    "loadouts": [
+        {
+            "id": "1",
+            "type1": "weapon-main",
+            "code": "liberator",
+            "name": "AR-19 Liberator"
+        },
+        {
+            "id": "2",
+            "type1": "weapon-main",
+            "code": "patriot",
+            "name": "AR-22C Patriot"
+        },
+        {
+            "id": "3",
+            "type1": "weapon-main",
+            "code": "justice",
+            "name": "AR-20L Justice"
+        },
+        {
+            "id": "4",
+            "type1": "weapon-main",
+            "code": "paragon",
+            "name": "AR-14D Paragon"
+        },
+        {
+            "id": "5",
+            "type1": "weapon-main",
+            "code": "stalwart",
+            "name": "MG-105 Stalwart"
+        },
+        {
+            "id": "6",
+            "type1": "weapon-main",
+            "code": "breaker",
+            "name": "SG-225 Breaker"
+        },
+        {
+            "id": "7",
+            "type1": "weapon-main",
+            "code": "punisher",
+            "name": "SG-8 Punisher"
+        },
+        {
+            "id": "8",
+            "type1": "weapon-main",
+            "code": "double-freedom",
+            "name": "DBS-2 Double Freedom"
+        },
+        {
+            "id": "9",
+            "type1": "weapon-main",
+            "code": "defender",
+            "name": "SMG-45 Defender"
+        },
+        {
+            "id": "10",
+            "type1": "weapon-main",
+            "code": "knight ",
+            "name": "MP-98 Knight SMG"
+        },
+        {
+            "id": "11",
+            "type1": "weapon-main",
+            "code": "ninja",
+            "name": "SMG-34 Ninja"
+        },
+        {
+            "id": "12",
+            "type1": "weapon-main",
+            "code": "camper",
+            "name": "LHO-63 Camper"
+        },
+        {
+            "id": "13",
+            "type1": "weapon-main",
+            "code": "rail-gun",
+            "name": "RX-1 Rail Gun"
+        },
+        {
+            "id": "14",
+            "type1": "weapon-main",
+            "code": "constitution",
+            "name": "M2016 Constitution"
+        },
+        {
+            "id": "15",
+            "type1": "weapon-main",
+            "code": "suppressor",
+            "name": "CR-9 Suppressor"
+        },
+        {
+            "id": "16",
+            "type1": "weapon-main",
+            "code": "scorcher",
+            "name": "PLAS-1 Scorcher"
+        },
+        {
+            "id": "17",
+            "type1": "weapon-main",
+            "code": "scythe",
+            "name": "LAS-5 Scythe"
+        },
+        {
+            "id": "18",
+            "type1": "weapon-main",
+            "code": "sickle",
+            "name": "LAS-16 Sickle"
+        },
+        {
+            "id": "19",
+            "type1": "weapon-main",
+            "code": "tanto",
+            "name": "LAS-12 Tanto"
+        },
+        {
+            "id": "20",
+            "type1": "weapon-main",
+            "code": "trident",
+            "name": "LAS-13 Trident"
+        },
+        {
+            "id": "21",
+            "type1": "weapon-main",
+            "code": "arc-thrower",
+            "name": "AC-3 Arc Thrower"
+        },
+        {
+            "id": "22",
+            "type1": "weapon-main",
+            "code": "arc-shotgun",
+            "name": "AC-5 Arc Shotgun"
+        },
+        {
+            "id": "23",
+            "type1": "perks",
+            "code": "laser-aim-module",
+            "name": "Laser Aim Module"
+        },
+        {
+            "id": "24",
+            "type1": "perks",
+            "code": "stun-grenades",
+            "name": "Stun Grenades"
+        },
+        {
+            "id": "25",
+            "type1": "perks",
+            "code": "heavy-armor",
+            "name": "Heavy Armor"
+        },
+        {
+            "id": "26",
+            "type1": "perks",
+            "code": "stratagem-priority",
+            "name": "Stratagem Priority"
+        },
+        {
+            "id": "27",
+            "type1": "perks",
+            "code": "cardio",
+            "name": "Cardio Accelerator"
+        },
+        {
+            "id": "28",
+            "type1": "perks",
+            "code": "autoinjector",
+            "name": "MD-99 Autoinjector"
+        },
+        {
+            "id": "29",
+            "type1": "perks",
+            "code": "smoke-grenades",
+            "name": "Smoke Grenades"
+        },
+        {
+            "id": "30",
+            "type1": "perks",
+            "code": "incendiary-grenades",
+            "name": "Incendiary Grenades"
+        },
+        {
+            "id": "31",
+            "type1": "perks",
+            "code": "displacement-field",
+            "name": "Displacement Field"
+        },
+        {
+            "id": "32",
+            "type1": "perks",
+            "code": "strong-arm",
+            "name": "Strong Arm"
+        },
+        {
+            "id": "33",
+            "type1": "perks",
+            "code": "gunslinger",
+            "name": "P-6 Gunslinger"
+        },
+        {
+            "id": "34",
+            "type1": "perks",
+            "code": "pyro",
+            "name": "FLAM-24 Pyro"
+        },
+        {
+            "id": "35",
+            "type1": "perks",
+            "code": "singe",
+            "name": "PLAS-3 Singe"
+        },
+        {
+            "id": "36",
+            "type1": "perks",
+            "code": "terrain-boots",
+            "name": "All Terrain Boots"
+        },
+        {
+            "id": "37",
+            "type1": "perks",
+            "code": "precision-call",
+            "name": "Precision Call-In"
+        },
+        {
+            "id": "38",
+            "type1": "stratagems",
+            "code": "resupply",
+            "name": "Resupply"
+        },
+        {
+            "id": "39",
+            "type1": "stratagems",
+            "code": "rep80",
+            "name": "REP-80"
+        },
+        {
+            "id": "40",
+            "type1": "stratagems",
+            "code": "angel",
+            "name": "AD-289 Angel"
+        },
+        {
+            "id": "41",
+            "type1": "stratagems",
+            "code": "guard-dog",
+            "name": "AD-334 Guard Dog"
+        },
+        {
+            "id": "42",
+            "type1": "stratagems",
+            "code": "jump-pack",
+            "name": "LIFT-850 Jump Pack"
+        },
+        {
+            "id": "43",
+            "type1": "stratagems",
+            "code": "resupply-pack",
+            "name": "Resupply Pack"
+        },
+        {
+            "id": "44",
+            "type1": "stratagems",
+            "code": "shield-generator",
+            "name": "SH-20 Shield Generator Pack"
+        },
+        {
+            "id": "45",
+            "type1": "stratagems",
+            "code": "kinetic-shield",
+            "name": "SH-32 Directional Kinetic Shield"
+        },
+        {
+            "id": "46",
+            "type1": "stratagems",
+            "code": "dum-dum",
+            "name": "AC-22 Dum-Dum"
+        },
+        {
+            "id": "47",
+            "type1": "stratagems",
+            "code": "eat17",
+            "name": "EAT-17"
+        },
+        {
+            "id": "48",
+            "type1": "stratagems",
+            "code": "incinerator",
+            "name": "FLAM-40 Incinerator"
+        },
+        {
+            "id": "49",
+            "type1": "stratagems",
+            "code": "laser-cannon",
+            "name": "LAS-98 Laser Cannon"
+        },
+        {
+            "id": "50",
+            "type1": "stratagems",
+            "code": "rumbler",
+            "name": "M-25 Rumbler"
+        },
+        {
+            "id": "51",
+            "type1": "stratagems",
+            "code": "mg94",
+            "name": "MG-94 Machine Gun"
+        },
+        {
+            "id": "52",
+            "type1": "stratagems",
+            "code": "mgx42",
+            "name": "MGX-42 Machine Gun"
+        },
+        {
+            "id": "53",
+            "type1": "stratagems",
+            "code": "commando",
+            "name": "MLS-4X Commando"
+        },
+        {
+            "id": "54",
+            "type1": "stratagems",
+            "code": "obliterator",
+            "name": "Obliterator Grenade Launcher"
+        },
+        {
+            "id": "55",
+            "type1": "stratagems",
+            "code": "demolisher",
+            "name": "REC-6 Demolisher"
+        },
+        {
+            "id": "56",
+            "type1": "stratagems",
+            "code": "rpg",
+            "name": "RL-112 Recoilless Rifle"
+        },
+        {
+            "id": "57",
+            "type1": "stratagems",
+            "code": "avenger",
+            "name": "TOX-13 Avenger"
+        },
+        {
+            "id": "58",
+            "type1": "stratagems",
+            "code": "walker",
+            "name": "EXO-44 Walker Exosuit"
+        },
+        {
+            "id": "59",
+            "type1": "stratagems",
+            "code": "obsidian",
+            "name": "EXO-48 Obsidian Exosuit"
+        },
+        {
+            "id": "60",
+            "type1": "stratagems",
+            "code": "lumberer",
+            "name": "EXO-51 Lumberer Exosuit"
+        },
+        {
+            "id": "61",
+            "type1": "stratagems",
+            "code": "apc",
+            "name": "M5 APC"
+        },
+        {
+            "id": "62",
+            "type1": "stratagems",
+            "code": "hav",
+            "name": "M5-32 HAV"
+        },
+        {
+            "id": "63",
+            "type1": "stratagems",
+            "code": "bastion",
+            "name": "TD-110 Bastion"
+        },
+        {
+            "id": "64",
+            "type1": "stratagems",
+            "code": "hammer",
+            "name": "MC-109 Hammer Motorcycle"
+        },
+        {
+            "id": "65",
+            "type1": "stratagems",
+            "code": "tesla",
+            "name": "A\/AC-6 Tesla Tower"
+        },
+        {
+            "id": "66",
+            "type1": "stratagems",
+            "code": "gl-launcher-turret",
+            "name": "A\/GL-8 Launcher Turret"
+        },
+        {
+            "id": "67",
+            "type1": "stratagems",
+            "code": "minigun-turret",
+            "name": "A\/MG-11 Minigun Turret"
+        },
+        {
+            "id": "68",
+            "type1": "stratagems",
+            "code": "railcannon-turret",
+            "name": "A\/RX-34 Railcannon Turret"
+        },
+        {
+            "id": "69",
+            "type1": "stratagems",
+            "code": "mines",
+            "name": "Airdropped Anti-Personnel Mines"
+        },
+        {
+            "id": "70",
+            "type1": "stratagems",
+            "code": "stun-mines",
+            "name": "Airdropped Stun Mines"
+        },
+        {
+            "id": "71",
+            "type1": "stratagems",
+            "code": "barb-wire",
+            "name": "Anti-Personnel Barrier"
+        },
+        {
+            "id": "72",
+            "type1": "stratagems",
+            "code": "at-turret",
+            "name": "AT-47 Anti-Tank Emplacement"
+        },
+        {
+            "id": "73",
+            "type1": "stratagems",
+            "code": "distractor",
+            "name": "Distractor Beacon"
+        },
+        {
+            "id": "74",
+            "type1": "stratagems",
+            "code": "uav",
+            "name": "Humblebee UAV drone"
+        },
+        {
+            "id": "75",
+            "type1": "stratagems",
+            "code": "thunderer-smoke",
+            "name": "Thunderer Smoke Round"
+        },
+        {
+            "id": "76",
+            "type1": "stratagems",
+            "code": "airstrike",
+            "name": "Airstrike"
+        },
+        {
+            "id": "77",
+            "type1": "stratagems",
+            "code": "cas",
+            "name": "Close Air Support"
+        },
+        {
+            "id": "78",
+            "type1": "stratagems",
+            "code": "heavy-strafing",
+            "name": "Heavy Strafing Run"
+        },
+        {
+            "id": "79",
+            "type1": "stratagems",
+            "code": "incendiary-bombs",
+            "name": "Incendiary Bombs"
+        },
+        {
+            "id": "80",
+            "type1": "stratagems",
+            "code": "missile-barrage",
+            "name": "Missile Barrage"
+        },
+        {
+            "id": "81",
+            "type1": "stratagems",
+            "code": "orbital-laser",
+            "name": "Orbital Laser Strike"
+        },
+        {
+            "id": "82",
+            "type1": "stratagems",
+            "code": "railcannon",
+            "name": "Railcannon Strike"
+        },
+        {
+            "id": "83",
+            "type1": "stratagems",
+            "code": "shredder",
+            "name": "Shredder Missile Strike"
+        },
+        {
+            "id": "84",
+            "type1": "stratagems",
+            "code": "sledge-arty",
+            "name": "Sledge Precision Artillery"
+        },
+        {
+            "id": "85",
+            "type1": "stratagems",
+            "code": "static-field",
+            "name": "Static Field Conductors"
+        },
+        {
+            "id": "86",
+            "type1": "stratagems",
+            "code": "strafing",
+            "name": "Strafing Run"
+        },
+        {
+            "id": "87",
+            "type1": "stratagems",
+            "code": "thunderer",
+            "name": "Thunderer Barrage"
+        },
+        {
+            "id": "88",
+            "type1": "stratagems",
+            "code": "vindicator",
+            "name": "Vindicator Dive Bomb"
+        }
+    ]
+}

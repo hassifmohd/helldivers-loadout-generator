@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Button, Table } from 'reactstrap';
+import lowDb from 'lowdb';
+import lowDbMemory from 'lowdb/adapters/Memory';
+import dbJson from './db/db.json'; //store loadouts database using json
+import _ from 'lodash';
+import randomizer from 'probability-distributions';
 
 class App extends Component {
 
@@ -23,7 +28,7 @@ class App extends Component {
 
   //set number of players
   setPlayerNumber = (event) => {
-    this.setState({ playerNumber: event.target.value });
+    this.setState({ playerNumber: parseInt(event.target.value) });
   };
 
   //set mission type
@@ -43,7 +48,25 @@ class App extends Component {
 
   //generate the loadout
   generateLoadout = (event) => {
-    alert("BOOM");
+
+    //setting up the database
+    let db = lowDb(new lowDbMemory());
+    db.defaults(JSON.parse(JSON.stringify(dbJson))).write();
+
+    //get random weapons
+    let weapons = db.get('loadouts').filter({ type1: 'weapon-main' }).value();
+    let selectedWeapons = randomizer.sample(_.map(weapons, 'code'), this.state.playerNumber, false);
+    console.log(selectedWeapons);
+
+    //get random perks
+    let perks = db.get('loadouts').filter({ type1: 'perks' }).value();
+    let selectedPerks = randomizer.sample(_.map(perks, 'code'), this.state.playerNumber, false);
+    console.log(selectedPerks);
+
+    //get random stratagem
+    let stratagems = db.get('loadouts').filter({ type1: 'stratagems' }).value();
+    let selectedStratagems = randomizer.sample(_.map(stratagems, 'code'), (this.state.playerNumber * 4), false);
+    console.log(selectedStratagems);
   }
 
   render() {
