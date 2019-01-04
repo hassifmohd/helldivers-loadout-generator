@@ -10,7 +10,8 @@
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-scripts": "2.1.2",
-    "reactstrap": "^7.0.2"
+    "reactstrap": "^7.0.2",
+    "shortid": "^2.2.14"
   },
   "scripts": {
     "start": "react-scripts start",

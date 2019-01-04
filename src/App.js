@@ -7,6 +7,7 @@ import lowDbMemory from 'lowdb/adapters/Memory';
 import dbJson from './db/db.json'; //store loadouts database using json
 import _ from 'lodash';
 import randomizer from 'probability-distributions';
+import shortid from 'shortid';
 
 class App extends Component {
 
@@ -24,6 +25,8 @@ class App extends Component {
         { name: 'Player 4', weapon: null, perk: null, stratagems: [] },
       ]
     };
+
+    //testing hello
 
     this.setPlayerNumber = this.setPlayerNumber.bind(this);
     this.setMissionType = this.setMissionType.bind(this);
@@ -58,17 +61,58 @@ class App extends Component {
     //setting up the database
     let db = lowDb(new lowDbMemory());
     db.defaults(JSON.parse(JSON.stringify(dbJson))).write();
+
+    //lazy counter to keep track some logic
     let rawData = null;
+    let stratagemLimitCounter = {
+      'Backpacks': this.state.playerNumber,
+      'Secondary': this.state.playerNumber, //secondary weapon
+    };
+
+    //remove a loadout
+    const removeLoadout = (loadoutType) => {
+      let loadoutsToRemove = db.get('selectedLoadouts').filter((record) => {
+        return record.atr_resupply === null && record.type1 === loadoutType
+      }).value();
+      let chosenLoadout = randomizer.sample(_.map(loadoutsToRemove, 'id'), 1, false);
+      db.get('selectedLoadouts').remove({ id: `${chosenLoadout}` }).write();
+    }
 
     //update loadout into database
     const updateLoadout = (codes) => {
       _.forEach(codes, function (code) {
 
-        let loadout = db.get('loadouts').find({ code: code }).value();
+        let loadout = JSON.parse(JSON.stringify(db.get('loadouts').find({ code: code }).value()));
 
-        // db.get('loadouts').find({ code: loadout.code }).assign({ taken: loadout.taken + 1 }).write();
+        db.get('loadouts').find({ code: loadout.code }).assign({
+          taken: loadout.taken + 1, //count number of loadout being taken
+          odd: Math.ceil(loadout.odd / 2) //recude the odd of get selected by half
+        }).write();
 
+        //insert into selectedLoadouts
+        //=========================================================================
+        loadout.id = shortid.generate();
         db.get('selectedLoadouts').push(loadout).write();
+
+        //maximum backpacks depend on total player
+        if (loadout.type2 === 'Backpacks') {
+          stratagemLimitCounter['Backpacks']--;
+          if (0 >= stratagemLimitCounter['Backpacks']) {
+            db.get('loadouts').filter({ type2: 'Backpacks' }).each((record) => {
+              record.odd = 0
+            }).write();
+          }
+        }
+
+        //maximum secondary weapon depend on total player
+        if (loadout.type2 === 'Secondary') {
+          stratagemLimitCounter['Secondary']--;
+          if (0 >= stratagemLimitCounter['Secondary']) {
+            db.get('loadouts').filter({ type2: 'Secondary' }).each((record) => {
+              record.odd = 0
+            }).write();
+          }
+        }
       });
     }
 
@@ -107,50 +151,76 @@ class App extends Component {
 
       // console.log(loadouts);
       // console.log(selectedLoadouts);
+      console.log(db.get('selectedLoadouts').filter().value());
       return selectedLoadouts;
     }
 
     //get random weapons
-    let weapons = db.get('loadouts').filter({ type1: 'weapon-main' }).value();
-    let selectedWeapons = randomizer.sample(_.map(weapons, 'code'), this.state.playerNumber, false);
-    // console.log(selectedWeapons);
-    updateLoadout(selectedWeapons);
+    for (var aa = 0; aa < this.state.playerNumber; aa++) {
+      let weapons = db.get('loadouts').filter((record) => {
+        return record.type1 === 'weapon-main' && record.odd > 0
+      }).value();
+      updateLoadout(
+        randomizer.sample(
+          _.map(weapons, 'code'), 1, false, _.map(weapons, 'odd'))
+      );
+    }
 
     //get random perks
-    let perks = db.get('loadouts').filter({ type1: 'perks' }).value();
-    let selectedPerks = randomizer.sample(_.map(perks, 'code'), this.state.playerNumber, false);
-    // console.log(selectedPerks);
-    updateLoadout(selectedPerks);
+    for (var aa = 0; aa < this.state.playerNumber; aa++) {
+      let perks = db.get('loadouts').filter((record) => {
+        return record.type1 === 'perks' && record.odd > 0
+      }).value();
+      updateLoadout(
+        randomizer.sample(
+          _.map(perks, 'code'), 1, false, _.map(perks, 'odd'))
+      );
+    }
 
     //get random stratagem
     //will not give Resupply & Resupply Pack (this will be done later)
-    updateLoadout(['resupply']);
-    let stratagems = db.get('loadouts').filter({ type1: 'stratagems' }).value();
-    let selectedStratagems = randomizer.sample(_.map(stratagems, 'code'), ((this.state.playerNumber * 4) - 1), true);
-    // console.log(selectedStratagems);
-    updateLoadout(selectedStratagems);
+    for (var aa = 0; aa < (this.state.playerNumber * 4); aa++) {
+      let stratagems = db.get('loadouts').filter((record) => {
+        return record.type1 === 'stratagems' && record.odd > 0
+      }).value();
+      updateLoadout(
+        randomizer.sample(
+          _.map(stratagems, 'code'), 1, false, _.map(stratagems, 'odd'))
+      );
+    }
 
     /**
      * decide resupply stratagem
      * CASE1, if atr_resupply > 0 then give 1 resupply
      * CASE2, if sum of atr_resupply >= 400 then give 1 resupply or bag
-     * 
+     *
      * this to be executed after random stratagem (eg: Commando require resupply)
      * will remove 1 or 2 stratagems depend on CASE1 or CASE2
      * stratagem remove is atr_resupply is NULL
      */
-    // rawData = db.get('loadouts').filter((record) => {
-    //   return record.taken > 0 && record.atr_resupply > 0
-    // }).value();
+    rawData = db.get('loadouts').filter((record) => {
+      return record.taken > 0 && record.atr_resupply > 0
+    }).value();
     // console.log(_.map(rawData, 'code'));
-    // rawData = _.map(rawData, 'atr_resupply');
-    // rawData = _.map(rawData, _.parseInt);
-    // rawData = _.sum(rawData);
+    rawData = _.map(rawData, 'atr_resupply');
+    rawData = _.map(rawData, _.parseInt);
+    rawData = _.sum(rawData);
     // console.log(rawData);
-    // if (rawData > 0) {
-    // }
-    // if (this.state.playerNumber > 2 && rawData >= 400) {
-    // }
+    if (rawData > 0) {
+      removeLoadout('stratagems');
+      updateLoadout(['resupply']);
+    }
+    if (this.state.playerNumber > 2 && rawData >= 400) {
+      removeLoadout('stratagems');
+
+      //if applicable, have 50% to get resupply-pack
+      let ammoExtra = ['resupply'];
+      if (stratagemLimitCounter['Backpacks'] !== 0) {
+        ammoExtra.push('resupply-pack');
+      }
+
+      updateLoadout(randomizer.sample(ammoExtra, 1, false));
+    }
 
     //list of loadouts assigned
     this.setState({ loadout: assignLoadout(this.state.playerNumber) });
