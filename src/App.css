@@ -11,6 +11,30 @@
   color: #61dafb;
 }
 
+.weapon {
+  background-color: rgba(10, 10, 10, 0.9);
+  height: 75px;
+}
+
+.defense {
+  background-color: rgb(125, 159, 99);
+  height: 75px;
+}
+
+.support {
+  background-color: rgb(76, 116, 161);
+  height: 75px;
+}
+
+.offensive {
+  background-color: rgb(139, 91, 81);
+  height: 75px;
+}
+
+.smalltext {
+  font-size: 12px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
