@@ -8,6 +8,15 @@ import dbJson from './db/db.json'; //store loadouts database using json
 import _ from 'lodash';
 import randomizer from 'probability-distributions';
 import shortid from 'shortid';
+import TableRow from './components/TableRow';
+
+//setting up the blank loadout
+const blankLoadout = [
+  { name: 'Player 1', weapon: { code: null, name: null }, perk: { code: null, name: null }, stratagems: [] },
+  { name: 'Player 2', weapon: { code: null, name: null }, perk: { code: null, name: null }, stratagems: [] },
+  { name: 'Player 3', weapon: { code: null, name: null }, perk: { code: null, name: null }, stratagems: [] },
+  { name: 'Player 4', weapon: { code: null, name: null }, perk: { code: null, name: null }, stratagems: [] },
+];
 
 class App extends Component {
 
@@ -18,15 +27,8 @@ class App extends Component {
       missionType: 'objective',
       enemyRace: '',
       difficulty: '',
-      loadout: [
-        { name: 'Player 1', weapon: null, perk: null, stratagems: [] },
-        { name: 'Player 2', weapon: null, perk: null, stratagems: [] },
-        { name: 'Player 3', weapon: null, perk: null, stratagems: [] },
-        { name: 'Player 4', weapon: null, perk: null, stratagems: [] },
-      ]
+      loadout: blankLoadout
     };
-
-    //testing hello
 
     this.setPlayerNumber = this.setPlayerNumber.bind(this);
     this.setMissionType = this.setMissionType.bind(this);
@@ -118,12 +120,7 @@ class App extends Component {
 
     //assign loadout to player
     const assignLoadout = (playerNumber) => {
-      let selectedLoadouts = [
-        { name: 'Player 1', weapon: null, perk: null, stratagems: [] },
-        { name: 'Player 2', weapon: null, perk: null, stratagems: [] },
-        { name: 'Player 3', weapon: null, perk: null, stratagems: [] },
-        { name: 'Player 4', weapon: null, perk: null, stratagems: [] },
-      ];
+      let selectedLoadouts = JSON.parse(JSON.stringify(blankLoadout));
 
       let loadouts = null;
       let countPlayer = 0;
@@ -131,21 +128,31 @@ class App extends Component {
       countPlayer = 0;
       loadouts = db.get('selectedLoadouts').filter({ type1: 'weapon-main' }).value();
       _.forEach(loadouts, function (loadout) {
-        selectedLoadouts[countPlayer]['weapon'] = loadout.code;
+        selectedLoadouts[countPlayer]['weapon'] = {
+          code: loadout.code,
+          name: loadout.name,
+        };
         countPlayer++;
       });
 
       countPlayer = 0;
       loadouts = db.get('selectedLoadouts').filter({ type1: 'perks' }).value();
       _.forEach(loadouts, function (loadout) {
-        selectedLoadouts[countPlayer]['perk'] = loadout.code;
+        selectedLoadouts[countPlayer]['perk'] = {
+          code: loadout.code,
+          name: loadout.name,
+        };
         countPlayer++;
       });
 
       countPlayer = 0;
       loadouts = db.get('selectedLoadouts').filter({ type1: 'stratagems' }).value();
       _.forEach(loadouts, function (loadout) {
-        selectedLoadouts[countPlayer % playerNumber]['stratagems'].push(loadout.code);
+        selectedLoadouts[countPlayer % playerNumber]['stratagems'].push({
+          code: loadout.code,
+          name: loadout.name,
+          style: loadout.style,
+        });
         countPlayer++;
       });
 
@@ -156,7 +163,7 @@ class App extends Component {
     }
 
     //get random weapons
-    for (var aa = 0; aa < this.state.playerNumber; aa++) {
+    for (let aa = 0; aa < this.state.playerNumber; aa++) {
       let weapons = db.get('loadouts').filter((record) => {
         return record.type1 === 'weapon-main' && record.odd > 0
       }).value();
@@ -167,7 +174,7 @@ class App extends Component {
     }
 
     //get random perks
-    for (var aa = 0; aa < this.state.playerNumber; aa++) {
+    for (let bb = 0; bb < this.state.playerNumber; bb++) {
       let perks = db.get('loadouts').filter((record) => {
         return record.type1 === 'perks' && record.odd > 0
       }).value();
@@ -305,56 +312,20 @@ class App extends Component {
           <Table>
             <thead>
               <tr>
-                <th></th>
-                <th>Player 1</th>
-                <th>Player 2</th>
-                <th>Player 3</th>
-                <th>Player 4</th>
+                <th>Name</th>
+                <th>Weapons</th>
+                <th>Perks</th>
+                <th>Loadout 1</th>
+                <th>Loadout 2</th>
+                <th>Loadout 3</th>
+                <th>Loadout 4</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">Weapon</th>
-                <td>{this.state.loadout[0].weapon}</td>
-                <td>{this.state.loadout[1].weapon}</td>
-                <td>{this.state.loadout[2].weapon}</td>
-                <td>{this.state.loadout[3].weapon}</td>
-              </tr>
-              <tr>
-                <th scope="row">Perk</th>
-                <td>{this.state.loadout[0].perk}</td>
-                <td>{this.state.loadout[1].perk}</td>
-                <td>{this.state.loadout[2].perk}</td>
-                <td>{this.state.loadout[3].perk}</td>
-              </tr>
-              <tr>
-                <th scope="row">Loadout 1</th>
-                <td>{this.state.loadout[0].stratagems[0]}</td>
-                <td>{this.state.loadout[1].stratagems[0]}</td>
-                <td>{this.state.loadout[2].stratagems[0]}</td>
-                <td>{this.state.loadout[3].stratagems[0]}</td>
-              </tr>
-              <tr>
-                <th scope="row">Loadout 2</th>
-                <td>{this.state.loadout[0].stratagems[1]}</td>
-                <td>{this.state.loadout[1].stratagems[1]}</td>
-                <td>{this.state.loadout[2].stratagems[1]}</td>
-                <td>{this.state.loadout[3].stratagems[1]}</td>
-              </tr>
-              <tr>
-                <th scope="row">Loadout 3</th>
-                <td>{this.state.loadout[0].stratagems[2]}</td>
-                <td>{this.state.loadout[1].stratagems[2]}</td>
-                <td>{this.state.loadout[2].stratagems[2]}</td>
-                <td>{this.state.loadout[3].stratagems[2]}</td>
-              </tr>
-              <tr>
-                <th scope="row">Loadout 4</th>
-                <td>{this.state.loadout[0].stratagems[3]}</td>
-                <td>{this.state.loadout[1].stratagems[3]}</td>
-                <td>{this.state.loadout[2].stratagems[3]}</td>
-                <td>{this.state.loadout[3].stratagems[3]}</td>
-              </tr>
+              <TableRow {...this.state.loadout[0]} />
+              <TableRow {...this.state.loadout[1]} />
+              <TableRow {...this.state.loadout[2]} />
+              <TableRow {...this.state.loadout[3]} />
             </tbody>
           </Table>
         </div>
