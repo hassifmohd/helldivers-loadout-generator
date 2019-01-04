@@ -25,6 +25,8 @@ class App extends Component {
       ]
     };
 
+    //testing
+
     this.setPlayerNumber = this.setPlayerNumber.bind(this);
     this.setMissionType = this.setMissionType.bind(this);
     this.setEnemyRace = this.setEnemyRace.bind(this);
@@ -134,7 +136,7 @@ class App extends Component {
      * decide resupply stratagem
      * CASE1, if atr_resupply > 0 then give 1 resupply
      * CASE2, if sum of atr_resupply >= 400 then give 1 resupply or bag
-     * 
+     *
      * this to be executed after random stratagem (eg: Commando require resupply)
      * will remove 1 or 2 stratagems depend on CASE1 or CASE2
      * stratagem remove is atr_resupply is NULL
