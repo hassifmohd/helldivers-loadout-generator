@@ -2,708 +2,972 @@
     "selectedLoadouts": [],
     "loadouts": [
         {
-            "id": "1",
+            "id": 1,
             "type1": "weapon-main",
+            "type2": "Assault Rifles",
             "code": "liberator",
             "name": "AR-19 Liberator",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": "100"
+            "atr_resupply": 100,
+            "attr_cooldown": null
         },
         {
-            "id": "2",
+            "id": 2,
             "type1": "weapon-main",
+            "type2": "Assault Rifles",
             "code": "patriot",
             "name": "AR-22C Patriot",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": "150"
+            "atr_resupply": 150,
+            "attr_cooldown": null
         },
         {
-            "id": "3",
+            "id": 3,
             "type1": "weapon-main",
+            "type2": "Assault Rifles",
             "code": "justice",
             "name": "AR-20L Justice",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": "100"
+            "atr_resupply": 100,
+            "attr_cooldown": null
         },
         {
-            "id": "4",
+            "id": 4,
             "type1": "weapon-main",
+            "type2": "Assault Rifles",
             "code": "paragon",
             "name": "AR-14D Paragon",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": "200"
+            "atr_resupply": 200,
+            "attr_cooldown": null
         },
         {
-            "id": "5",
+            "id": 5,
             "type1": "weapon-main",
+            "type2": "LMG",
             "code": "stalwart",
             "name": "MG-105 Stalwart",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": "100"
+            "atr_resupply": 100,
+            "attr_cooldown": null
         },
         {
-            "id": "6",
+            "id": 6,
             "type1": "weapon-main",
+            "type2": "Shotguns",
             "code": "breaker",
             "name": "SG-225 Breaker",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": "200"
+            "atr_resupply": 200,
+            "attr_cooldown": null
         },
         {
-            "id": "7",
+            "id": 7,
             "type1": "weapon-main",
+            "type2": "Shotguns",
             "code": "punisher",
             "name": "SG-8 Punisher",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": "100"
+            "atr_resupply": 100,
+            "attr_cooldown": null
         },
         {
-            "id": "8",
+            "id": 8,
             "type1": "weapon-main",
+            "type2": "Shotguns",
             "code": "double-freedom",
             "name": "DBS-2 Double Freedom",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": "100"
+            "atr_resupply": 100,
+            "attr_cooldown": null
         },
         {
-            "id": "9",
+            "id": 9,
             "type1": "weapon-main",
+            "type2": "SMG",
             "code": "defender",
             "name": "SMG-45 Defender",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": "100"
+            "atr_resupply": 100,
+            "attr_cooldown": null
         },
         {
-            "id": "10",
+            "id": 10,
             "type1": "weapon-main",
+            "type2": "SMG",
             "code": "knight ",
             "name": "MP-98 Knight SMG",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": "150"
+            "atr_resupply": 150,
+            "attr_cooldown": null
         },
         {
-            "id": "11",
+            "id": 11,
             "type1": "weapon-main",
+            "type2": "SMG",
             "code": "ninja",
             "name": "SMG-34 Ninja",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": "100"
+            "atr_resupply": 100,
+            "attr_cooldown": null
         },
         {
-            "id": "12",
+            "id": 12,
             "type1": "weapon-main",
+            "type2": "Snipers",
             "code": "camper",
             "name": "LHO-63 Camper",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": "100"
+            "atr_resupply": 100,
+            "attr_cooldown": null
         },
         {
-            "id": "13",
+            "id": 13,
             "type1": "weapon-main",
+            "type2": "Snipers",
             "code": "rail-gun",
             "name": "RX-1 Rail Gun",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": "100"
+            "atr_resupply": 100,
+            "attr_cooldown": null
         },
         {
-            "id": "14",
+            "id": 14,
             "type1": "weapon-main",
+            "type2": "Snipers",
             "code": "constitution",
             "name": "M2016 Constitution",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": "100"
+            "atr_resupply": 100,
+            "attr_cooldown": null
         },
         {
-            "id": "15",
+            "id": 15,
             "type1": "weapon-main",
+            "type2": "Explosive",
             "code": "suppressor",
             "name": "CR-9 Suppressor",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": "100"
+            "atr_resupply": 100,
+            "attr_cooldown": null
         },
         {
-            "id": "16",
+            "id": 16,
             "type1": "weapon-main",
+            "type2": "Explosive",
             "code": "scorcher",
             "name": "PLAS-1 Scorcher",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": "100"
+            "atr_resupply": 100,
+            "attr_cooldown": null
         },
         {
-            "id": "17",
+            "id": 17,
             "type1": "weapon-main",
+            "type2": "Laser",
             "code": "scythe",
             "name": "LAS-5 Scythe",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": null
         },
         {
-            "id": "18",
+            "id": 18,
             "type1": "weapon-main",
+            "type2": "Laser",
             "code": "sickle",
             "name": "LAS-16 Sickle",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": null
         },
         {
-            "id": "19",
+            "id": 19,
             "type1": "weapon-main",
+            "type2": "Laser",
             "code": "tanto",
             "name": "LAS-12 Tanto",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": null
         },
         {
-            "id": "20",
+            "id": 20,
             "type1": "weapon-main",
+            "type2": "Laser",
             "code": "trident",
             "name": "LAS-13 Trident",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": null
         },
         {
-            "id": "21",
+            "id": 21,
             "type1": "weapon-main",
+            "type2": "Arc",
             "code": "arc-thrower",
             "name": "AC-3 Arc Thrower",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": null
         },
         {
-            "id": "22",
+            "id": 22,
             "type1": "weapon-main",
+            "type2": "Arc",
             "code": "arc-shotgun",
             "name": "AC-5 Arc Shotgun",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": null
         },
         {
-            "id": "23",
+            "id": 23,
             "type1": "perks",
+            "type2": "Others",
             "code": "laser-aim-module",
             "name": "Laser Aim Module",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": null
         },
         {
-            "id": "24",
+            "id": 24,
             "type1": "perks",
+            "type2": "Grenades",
             "code": "stun-grenades",
             "name": "Stun Grenades",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": "100"
+            "atr_resupply": 75,
+            "attr_cooldown": null
         },
         {
-            "id": "25",
+            "id": 25,
             "type1": "perks",
+            "type2": "Others",
             "code": "heavy-armor",
             "name": "Heavy Armor",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": null
         },
         {
-            "id": "26",
+            "id": 26,
             "type1": "perks",
+            "type2": "Others",
             "code": "stratagem-priority",
             "name": "Stratagem Priority",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": null
         },
         {
-            "id": "27",
+            "id": 27,
             "type1": "perks",
+            "type2": "Others",
             "code": "cardio",
             "name": "Cardio Accelerator",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": null
         },
         {
-            "id": "28",
+            "id": 28,
             "type1": "perks",
+            "type2": "Others",
             "code": "autoinjector",
             "name": "MD-99 Autoinjector",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": null
         },
         {
-            "id": "29",
+            "id": 29,
             "type1": "perks",
+            "type2": "Grenades",
             "code": "smoke-grenades",
             "name": "Smoke Grenades",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": "100"
+            "atr_resupply": 75,
+            "attr_cooldown": null
         },
         {
-            "id": "30",
+            "id": 30,
             "type1": "perks",
+            "type2": "Grenades",
             "code": "incendiary-grenades",
             "name": "Incendiary Grenades",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": "100"
+            "atr_resupply": 75,
+            "attr_cooldown": null
         },
         {
-            "id": "31",
+            "id": 31,
             "type1": "perks",
+            "type2": "Others",
             "code": "displacement-field",
             "name": "Displacement Field",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": null
         },
         {
-            "id": "32",
+            "id": 32,
             "type1": "perks",
+            "type2": "Others",
             "code": "strong-arm",
             "name": "Strong Arm",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": null
         },
         {
-            "id": "33",
+            "id": 33,
             "type1": "perks",
+            "type2": "Sidearms",
             "code": "gunslinger",
             "name": "P-6 Gunslinger",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": "100"
+            "atr_resupply": 75,
+            "attr_cooldown": null
         },
         {
-            "id": "34",
+            "id": 34,
             "type1": "perks",
+            "type2": "Sidearms",
             "code": "pyro",
             "name": "FLAM-24 Pyro",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": "100"
+            "atr_resupply": 75,
+            "attr_cooldown": null
         },
         {
-            "id": "35",
+            "id": 35,
             "type1": "perks",
+            "type2": "Sidearms",
             "code": "singe",
             "name": "PLAS-3 Singe",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": "100"
+            "atr_resupply": 75,
+            "attr_cooldown": null
         },
         {
-            "id": "36",
+            "id": 36,
             "type1": "perks",
+            "type2": "Others",
             "code": "terrain-boots",
             "name": "All Terrain Boots",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": null
         },
         {
-            "id": "37",
+            "id": 37,
             "type1": "perks",
+            "type2": "Others",
             "code": "precision-call",
             "name": "Precision Call-In",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": null
         },
         {
-            "id": "38",
+            "id": 38,
             "type1": "stratagems",
+            "type2": "Support",
             "code": "resupply",
             "name": "Resupply",
+            "odd": 0,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": 0,
+            "attr_cooldown": 180
         },
         {
-            "id": "39",
+            "id": 39,
             "type1": "stratagems",
+            "type2": "Secondary",
             "code": "rep80",
             "name": "REP-80",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": null
         },
         {
-            "id": "40",
+            "id": 40,
             "type1": "stratagems",
+            "type2": "Backpacks",
             "code": "angel",
             "name": "AD-289 Angel",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": "100"
+            "atr_resupply": 25,
+            "attr_cooldown": null
         },
         {
-            "id": "41",
+            "id": 41,
             "type1": "stratagems",
+            "type2": "Backpacks",
             "code": "guard-dog",
             "name": "AD-334 Guard Dog",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": "100"
+            "atr_resupply": 25,
+            "attr_cooldown": null
         },
         {
-            "id": "42",
+            "id": 42,
             "type1": "stratagems",
+            "type2": "Backpacks",
             "code": "jump-pack",
             "name": "LIFT-850 Jump Pack",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": null
         },
         {
-            "id": "43",
+            "id": 43,
             "type1": "stratagems",
+            "type2": "Backpacks",
             "code": "resupply-pack",
             "name": "Resupply Pack",
+            "odd": 0,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": 0,
+            "attr_cooldown": null
         },
         {
-            "id": "44",
+            "id": 44,
             "type1": "stratagems",
+            "type2": "Backpacks",
             "code": "shield-generator",
             "name": "SH-20 Shield Generator Pack",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": null
         },
         {
-            "id": "45",
+            "id": 45,
             "type1": "stratagems",
+            "type2": "Backpacks",
             "code": "kinetic-shield",
             "name": "SH-32 Directional Kinetic Shield",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": null
         },
         {
-            "id": "46",
+            "id": 46,
             "type1": "stratagems",
+            "type2": "Secondary",
             "code": "dum-dum",
             "name": "AC-22 Dum-Dum",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": "100"
+            "atr_resupply": 100,
+            "attr_cooldown": null
         },
         {
-            "id": "47",
+            "id": 47,
             "type1": "stratagems",
+            "type2": "Secondary",
             "code": "eat17",
             "name": "EAT-17",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": null
         },
         {
-            "id": "48",
+            "id": 48,
             "type1": "stratagems",
+            "type2": "Secondary",
             "code": "incinerator",
             "name": "FLAM-40 Incinerator",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": "100"
+            "atr_resupply": 50,
+            "attr_cooldown": null
         },
         {
-            "id": "49",
+            "id": 49,
             "type1": "stratagems",
+            "type2": "Secondary",
             "code": "laser-cannon",
             "name": "LAS-98 Laser Cannon",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": null
         },
         {
-            "id": "50",
+            "id": 50,
             "type1": "stratagems",
+            "type2": "Secondary",
             "code": "rumbler",
             "name": "M-25 Rumbler",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": "100"
+            "atr_resupply": 50,
+            "attr_cooldown": null
         },
         {
-            "id": "51",
+            "id": 51,
             "type1": "stratagems",
+            "type2": "Secondary",
             "code": "mg94",
             "name": "MG-94 Machine Gun",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": "100"
+            "atr_resupply": 100,
+            "attr_cooldown": null
         },
         {
-            "id": "52",
+            "id": 52,
             "type1": "stratagems",
+            "type2": "Secondary",
             "code": "mgx42",
             "name": "MGX-42 Machine Gun",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": null
         },
         {
-            "id": "53",
+            "id": 53,
             "type1": "stratagems",
+            "type2": "Secondary",
             "code": "commando",
             "name": "MLS-4X Commando",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": "100"
+            "atr_resupply": 50,
+            "attr_cooldown": null
         },
         {
-            "id": "54",
+            "id": 54,
             "type1": "stratagems",
+            "type2": "Secondary",
             "code": "obliterator",
             "name": "Obliterator Grenade Launcher",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": "100"
+            "atr_resupply": 75,
+            "attr_cooldown": null
         },
         {
-            "id": "55",
+            "id": 55,
             "type1": "stratagems",
+            "type2": "Secondary",
             "code": "demolisher",
             "name": "REC-6 Demolisher",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": 180
         },
         {
-            "id": "56",
+            "id": 56,
             "type1": "stratagems",
+            "type2": "Secondary",
             "code": "rpg",
             "name": "RL-112 Recoilless Rifle",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": "100"
+            "atr_resupply": 50,
+            "attr_cooldown": null
         },
         {
-            "id": "57",
+            "id": 57,
             "type1": "stratagems",
+            "type2": "Secondary",
             "code": "avenger",
             "name": "TOX-13 Avenger",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": "100"
+            "atr_resupply": 75,
+            "attr_cooldown": null
         },
         {
-            "id": "58",
+            "id": 58,
             "type1": "stratagems",
+            "type2": "Exosuit",
             "code": "walker",
             "name": "EXO-44 Walker Exosuit",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": null
         },
         {
-            "id": "59",
+            "id": 59,
             "type1": "stratagems",
+            "type2": "Exosuit",
             "code": "obsidian",
             "name": "EXO-48 Obsidian Exosuit",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": null
         },
         {
-            "id": "60",
+            "id": 60,
             "type1": "stratagems",
+            "type2": "Exosuit",
             "code": "lumberer",
             "name": "EXO-51 Lumberer Exosuit",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": null
         },
         {
-            "id": "61",
+            "id": 61,
             "type1": "stratagems",
+            "type2": "Vehicles",
             "code": "apc",
             "name": "M5 APC",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": null
         },
         {
-            "id": "62",
+            "id": 62,
             "type1": "stratagems",
+            "type2": "Vehicles",
             "code": "hav",
             "name": "M5-32 HAV",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": null
         },
         {
-            "id": "63",
+            "id": 63,
             "type1": "stratagems",
+            "type2": "Vehicles",
             "code": "bastion",
             "name": "TD-110 Bastion",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": null
         },
         {
-            "id": "64",
+            "id": 64,
             "type1": "stratagems",
+            "type2": "Vehicles",
             "code": "hammer",
             "name": "MC-109 Hammer Motorcycle",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": null
         },
         {
-            "id": "65",
+            "id": 65,
             "type1": "stratagems",
+            "type2": "Turret",
             "code": "tesla",
             "name": "A\/AC-6 Tesla Tower",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": 180
         },
         {
-            "id": "66",
+            "id": 66,
             "type1": "stratagems",
+            "type2": "Turret",
             "code": "gl-launcher-turret",
             "name": "A\/GL-8 Launcher Turret",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": 120
         },
         {
-            "id": "67",
+            "id": 67,
             "type1": "stratagems",
+            "type2": "Turret",
             "code": "minigun-turret",
             "name": "A\/MG-11 Minigun Turret",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": 180
         },
         {
-            "id": "68",
+            "id": 68,
             "type1": "stratagems",
+            "type2": "Turret",
             "code": "railcannon-turret",
             "name": "A\/RX-34 Railcannon Turret",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": 120
         },
         {
-            "id": "69",
+            "id": 69,
             "type1": "stratagems",
+            "type2": "Emplacement",
             "code": "mines",
             "name": "Airdropped Anti-Personnel Mines",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": 45
         },
         {
-            "id": "70",
+            "id": 70,
             "type1": "stratagems",
+            "type2": "Emplacement",
             "code": "stun-mines",
             "name": "Airdropped Stun Mines",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": 30
         },
         {
-            "id": "71",
+            "id": 71,
             "type1": "stratagems",
+            "type2": "Emplacement",
             "code": "barb-wire",
             "name": "Anti-Personnel Barrier",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": null
         },
         {
-            "id": "72",
+            "id": 72,
             "type1": "stratagems",
+            "type2": "Turret",
             "code": "at-turret",
             "name": "AT-47 Anti-Tank Emplacement",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": 180
         },
         {
-            "id": "73",
+            "id": 73,
             "type1": "stratagems",
+            "type2": "Support",
             "code": "distractor",
             "name": "Distractor Beacon",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": 120
         },
         {
-            "id": "74",
+            "id": 74,
             "type1": "stratagems",
+            "type2": "Support",
             "code": "uav",
             "name": "Humblebee UAV drone",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": null
         },
         {
-            "id": "75",
+            "id": 75,
             "type1": "stratagems",
+            "type2": "Airstrike",
             "code": "thunderer-smoke",
             "name": "Thunderer Smoke Round",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": 100
         },
         {
-            "id": "76",
+            "id": 76,
             "type1": "stratagems",
+            "type2": "Airstrike",
             "code": "airstrike",
             "name": "Airstrike",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": 90
         },
         {
-            "id": "77",
+            "id": 77,
             "type1": "stratagems",
+            "type2": "Airstrike",
             "code": "cas",
             "name": "Close Air Support",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": 75
         },
         {
-            "id": "78",
+            "id": 78,
             "type1": "stratagems",
+            "type2": "Airstrike",
             "code": "heavy-strafing",
             "name": "Heavy Strafing Run",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": 35
         },
         {
-            "id": "79",
+            "id": 79,
             "type1": "stratagems",
+            "type2": "Airstrike",
             "code": "incendiary-bombs",
             "name": "Incendiary Bombs",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": 45
         },
         {
-            "id": "80",
+            "id": 80,
             "type1": "stratagems",
+            "type2": "Airstrike",
             "code": "missile-barrage",
             "name": "Missile Barrage",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": 180
         },
         {
-            "id": "81",
+            "id": 81,
             "type1": "stratagems",
+            "type2": "Airstrike",
             "code": "orbital-laser",
             "name": "Orbital Laser Strike",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": 180
         },
         {
-            "id": "82",
+            "id": 82,
             "type1": "stratagems",
+            "type2": "Airstrike",
             "code": "railcannon",
             "name": "Railcannon Strike",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": 60
         },
         {
-            "id": "83",
+            "id": 83,
             "type1": "stratagems",
+            "type2": "Airstrike",
             "code": "shredder",
             "name": "Shredder Missile Strike",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": 210
         },
         {
-            "id": "84",
+            "id": 84,
             "type1": "stratagems",
+            "type2": "Airstrike",
             "code": "sledge-arty",
             "name": "Sledge Precision Artillery",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": 120
         },
         {
-            "id": "85",
+            "id": 85,
             "type1": "stratagems",
+            "type2": "Airstrike",
             "code": "static-field",
             "name": "Static Field Conductors",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": 45
         },
         {
-            "id": "86",
+            "id": 86,
             "type1": "stratagems",
+            "type2": "Airstrike",
             "code": "strafing",
             "name": "Strafing Run",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": 10
         },
         {
-            "id": "87",
+            "id": 87,
             "type1": "stratagems",
+            "type2": "Airstrike",
             "code": "thunderer",
             "name": "Thunderer Barrage",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": 180
         },
         {
-            "id": "88",
+            "id": 88,
             "type1": "stratagems",
+            "type2": "Airstrike",
             "code": "vindicator",
             "name": "Vindicator Dive Bomb",
+            "odd": 100,
             "taken": 0,
-            "atr_resupply": null
+            "atr_resupply": null,
+            "attr_cooldown": 10
         }
     ]
 }
