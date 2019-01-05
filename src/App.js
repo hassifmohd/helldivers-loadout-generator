@@ -25,14 +25,16 @@ class App extends Component {
     this.state = {
       playerNumber: 1,
       missionType: 'objective',
-      enemyRace: '',
+      antiTankPower: 'YES',
+      sampleHunt: 'NO',
       difficulty: '',
       loadout: blankLoadout
     };
 
     this.setPlayerNumber = this.setPlayerNumber.bind(this);
     this.setMissionType = this.setMissionType.bind(this);
-    this.setEnemyRace = this.setEnemyRace.bind(this);
+    this.setSampleHunt = this.setSampleHunt.bind(this);
+    this.setAntiTankPower = this.setAntiTankPower.bind(this);
     this.setDifficulty = this.setDifficulty.bind(this);
     this.generateLoadout = this.generateLoadout.bind(this);
   }
@@ -47,9 +49,14 @@ class App extends Component {
     this.setState({ missionType: event.target.value });
   };
 
-  //set enemy race
-  setEnemyRace = (event) => {
-    this.setState({ enemyRace: event.target.value });
+  //set give UAV drone
+  setSampleHunt = (event) => {
+    this.setState({ sampleHunt: event.target.value });
+  }
+
+  //set give anti tank
+  setAntiTankPower = (event) => {
+    this.setState({ antiTankPower: event.target.value });
   };
 
   //set difficulty
@@ -64,6 +71,14 @@ class App extends Component {
     let db = lowDb(new lowDbMemory());
     db.defaults(JSON.parse(JSON.stringify(dbJson))).write();
 
+    //remove UAV and distractor beacon
+    if (this.state.missionType === 'rs' || this.state.missionType === 'boss') {
+      let customLoadout = db.get('levels').filter({ keyword: 'rs' }).value();
+      _.forEach(customLoadout, function (loadout) {
+        db.get('loadouts').find({ code: loadout.code }).assign({ odd: loadout.odd }).write();
+      });
+    }
+
     //lazy counter to keep track some logic
     let rawData = null;
     let stratagemLimitCounter = {
@@ -72,29 +87,69 @@ class App extends Component {
     };
 
     //remove a loadout
-    const removeLoadout = (loadoutType) => {
+    const removeLoadout = (loadoutType, specialFilter = '', totalToRemove = 1) => {
+
       let loadoutsToRemove = db.get('selectedLoadouts').filter((record) => {
-        return record.atr_resupply === null && record.type1 === loadoutType
+
+        switch (specialFilter) {
+
+          case 'resupply':
+            return (
+              record.atr_resupply === null &&
+              record.type1 === loadoutType &&
+              record.fix === false
+            );
+            break;
+
+          case 'antitank':
+            return (
+              record.attr_atpower === null &&
+              record.type1 === loadoutType &&
+              record.fix === false
+            );
+            break;
+
+          default:
+            return (
+              record.type1 === loadoutType &&
+              record.fix === false
+            )
+        }
       }).value();
-      let chosenLoadout = randomizer.sample(_.map(loadoutsToRemove, 'id'), 1, false);
+      let chosenLoadout = randomizer.sample(_.map(loadoutsToRemove, 'id'), totalToRemove, false);
       db.get('selectedLoadouts').remove({ id: `${chosenLoadout}` }).write();
     }
 
+    /**
+     * BUG REPORT:
+     * select 1 player, select cyborg, they got TOX
+     * then player has no AT POWER
+     * we give AT POWER PRG, now player has TOX and RPG
+     */
+
     //update loadout into database
-    const updateLoadout = (codes) => {
+    const updateLoadout = (codes, fixLoadout = false) => {
       _.forEach(codes, function (code) {
 
         let loadout = JSON.parse(JSON.stringify(db.get('loadouts').find({ code: code }).value()));
 
         db.get('loadouts').find({ code: loadout.code }).assign({
           taken: loadout.taken + 1, //count number of loadout being taken
-          odd: Math.ceil(loadout.odd / 2) //recude the odd of get selected by half
+          odd: Math.min(100, Math.ceil(loadout.odd / 2)) //recude the odd of get selected by half
         }).write();
 
+        //debug: to check fix loadout
+        if (fixLoadout === true) {
+          console.log(loadout);
+        }
+
         //insert into selectedLoadouts
-        //=========================================================================
         loadout.id = shortid.generate();
+        loadout.fix = fixLoadout;
         db.get('selectedLoadouts').push(loadout).write();
+
+        //TODO / IDEA
+        //should not get 2 UAV, and maybe others few item should not get twice
 
         //maximum backpacks depend on total player
         if (loadout.type2 === 'Backpacks') {
@@ -131,6 +186,7 @@ class App extends Component {
         selectedLoadouts[countPlayer]['weapon'] = {
           code: loadout.code,
           name: loadout.name,
+          fix: loadout.fix,
         };
         countPlayer++;
       });
@@ -141,6 +197,7 @@ class App extends Component {
         selectedLoadouts[countPlayer]['perk'] = {
           code: loadout.code,
           name: loadout.name,
+          fix: loadout.fix,
         };
         countPlayer++;
       });
@@ -152,6 +209,7 @@ class App extends Component {
           code: loadout.code,
           name: loadout.name,
           style: loadout.style,
+          fix: loadout.fix,
         });
         countPlayer++;
       });
@@ -184,9 +242,11 @@ class App extends Component {
       );
     }
 
+    let remainingStratagem = (this.state.playerNumber * 4) - db.get('selectedLoadouts').filter({ type1: 'stratagems' }).size();
+
     //get random stratagem
     //will not give Resupply & Resupply Pack (this will be done later)
-    for (var aa = 0; aa < (this.state.playerNumber * 4); aa++) {
+    for (var aa = 0; aa < remainingStratagem; aa++) {
       let stratagems = db.get('loadouts').filter((record) => {
         return record.type1 === 'stratagems' && record.odd > 0
       }).value();
@@ -196,8 +256,40 @@ class App extends Component {
       );
     }
 
+    //SMART: give random solution if player want it
+    if (this.state.antiTankPower === 'YES') {
+
+      //calculate player current anti tank power
+      let loadoutsWithATpower = db.get('selectedLoadouts').filter((record) => {
+        return record.attr_atpower > 0
+      }).value();
+
+      //decide how many stratagem player should get
+      let atPower = _.sumBy(loadoutsWithATpower, 'attr_atpower');
+      let requiredAtPower = 100 + ((this.state.playerNumber - 1) * 50);
+      let atStratagemToGive = Math.ceil(Math.max(0, requiredAtPower - atPower) / 100); //should get minimum AT-POWER 200
+      // console.log(`AT POWER: ${atPower}/${requiredAtPower}, AT STRAT TO GIVE: ${atStratagemToGive}`);
+
+      //give random AT stratagem to player
+      if (atStratagemToGive > 0) {
+
+        // alert("GOT AT POWER ADDITION"); //debug
+
+        let customLoadout = db.get('levels').filter({ keyword: 'antitank' }).value();
+        if (!_.isEmpty(customLoadout)) {
+          let chosenLoadout = randomizer.sample(
+            _.map(customLoadout, 'code'), atStratagemToGive, true, _.map(customLoadout, 'odd')
+          );
+
+          removeLoadout('stratagems', 'antitank', atStratagemToGive);
+
+          updateLoadout(chosenLoadout, true);
+        }
+      }
+    }
+
     /**
-     * decide resupply stratagem
+     * SMART: decide resupply stratagem
      * CASE1, if atr_resupply > 0 then give 1 resupply
      * CASE2, if sum of atr_resupply >= 400 then give 1 resupply or bag
      *
@@ -214,11 +306,11 @@ class App extends Component {
     rawData = _.sum(rawData);
     // console.log(rawData);
     if (rawData > 0) {
-      removeLoadout('stratagems');
-      updateLoadout(['resupply']);
+      removeLoadout('stratagems', 'resupply');
+      updateLoadout(['resupply'], true);
     }
     if (this.state.playerNumber > 2 && rawData >= 400) {
-      removeLoadout('stratagems');
+      removeLoadout('stratagems', 'resupply');
 
       //if applicable, have 50% to get resupply-pack
       let ammoExtra = ['resupply'];
@@ -226,7 +318,7 @@ class App extends Component {
         ammoExtra.push('resupply-pack');
       }
 
-      updateLoadout(randomizer.sample(ammoExtra, 1, false));
+      updateLoadout(randomizer.sample(ammoExtra, 1, false), true);
     }
 
     //list of loadouts assigned
@@ -245,6 +337,7 @@ class App extends Component {
                 <tr>
                   <th>Details</th>
                   <th>Input</th>
+                  <th>Description</th>
                 </tr>
               </thead>
               <tbody>
@@ -260,6 +353,7 @@ class App extends Component {
                       <option>4</option>
                     </select>
                   </td>
+                  <td></td>
                 </tr>
 
                 {/* set mission type */}
@@ -273,19 +367,45 @@ class App extends Component {
                       <option value='boss'>Boss fight</option>
                     </select>
                   </td>
+                  <td>If not related, will remove Distractor Beacon and UAV Drone</td>
                 </tr>
 
-                {/* set enemy race */}
+                {/* set if need UAV drone */}
                 <tr>
-                  <th scope="row">Enemy race</th>
+                  <th scope="row">Do sample hunt</th>
                   <td>
-                    <select value={this.state.enemyRace} onChange={this.setEnemyRace}>
-                      <option value=''>Dont care</option>
-                      <option value='bugs'>Bugs</option>
-                      <option value='cyborgs'>Cyborgs</option>
-                      <option value='illuminate'>Illuminate</option>
+                    <select value={this.state.sampleHunt} onChange={this.setSampleHunt}>
+                      <option value='NO'>NO</option>
+                      <option value='uav'>UAV Drone</option>
+                      <option value='more'>UAV Drone & More</option>
                     </select>
                   </td>
+                  <td>Enable this if you are doing sample hunt.</td>
+                </tr>
+
+                {/* set if need all terrain boots */}
+                <tr>
+                  <th scope="row">Snowy terrain</th>
+                  <td>
+                    <select value={this.state.sampleHunt} onChange={this.setSampleHunt}>
+                      <option value='NO'>NO</option>
+                      <option value='option1'>Terrain Boots or Jump Pack</option>
+                      <option value='option2'>Other than Terrain Boots</option>
+                    </select>
+                  </td>
+                  <td>Give you random relief on a a snowy terrain or swamp.</td>
+                </tr>
+
+                {/* set if need anti-tank */}
+                <tr>
+                  <th scope="row">Anti tank stratragem</th>
+                  <td>
+                    <select value={this.state.antiTankPower} onChange={this.setAntiTankPower}>
+                      <option value='NO'>NO</option>
+                      <option value='YES'>YES</option>
+                    </select>
+                  </td>
+                  <td>Enable this if you fighting Cyborgs or Bugs.<br />Randomizer will give random anti tank stratagems if you lack of it</td>
                 </tr>
 
                 {/* set difficulty */}
@@ -293,12 +413,13 @@ class App extends Component {
                   <th scope="row">Difficulty</th>
                   <td>
                     <select value={this.state.difficulty} onChange={this.setDifficulty}>
-                      <option value=''>Dont care</option>
+                      <option value=''>Dont calculate</option>
                       <option value='easy'>Easy</option>
                       <option value='medium'>Medium</option>
                       <option value='hard'>Hard</option>
                     </select>
                   </td>
+                  <td>Not implemented yet</td>
                 </tr>
               </tbody>
             </Table>

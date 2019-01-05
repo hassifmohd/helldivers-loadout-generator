@@ -10,9 +10,16 @@ const TableRow = (props) => {
     const displayStratagem = (stratagems, key) => {
 
         if (_.isObject(stratagems[key])) {
+
+            let elementClass = [];
+            elementClass.push(props.stratagems[key].style);
+            if (props.stratagems[key].fix === true) {
+                elementClass.push('agift');
+            }
+
             return (
                 <React.Fragment>
-                    <ReactImageFallback src={`img/${stratagems[key].code}.svg`} fallbackImage='' className={props.stratagems[key].style} /><br />
+                    <ReactImageFallback src={`img/${stratagems[key].code}.svg`} fallbackImage='' className={elementClass.join(' ')} /><br />
                     <label className="smalltext">{props.stratagems[key].name}</label>
                 </React.Fragment>
             )
