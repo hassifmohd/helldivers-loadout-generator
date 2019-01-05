@@ -2,23 +2,58 @@
     "selectedLoadouts": [],
     "levels": [
         {
-            "keyword": "antitank",
-            "code": "eat17",
-            "odd": 100
+            "keyword": "allterrain1",
+            "code": "heavy-armor",
+            "odd": 0
         },
         {
-            "keyword": "antitank",
-            "code": "rumbler",
-            "odd": 100
+            "keyword": "allterrain1",
+            "code": "terrain-boots",
+            "odd": 0
+        },
+        {
+            "keyword": "allterrain1",
+            "code": "cardio",
+            "odd": 0
+        },
+        {
+            "keyword": "allterrain2",
+            "code": "heavy-armor",
+            "odd": 0
+        },
+        {
+            "keyword": "allterrain2",
+            "code": "terrain-boots",
+            "odd": 0
+        },
+        {
+            "keyword": "allterrain2",
+            "code": "jump-pack",
+            "odd": 0
+        },
+        {
+            "keyword": "allterrain2",
+            "code": "cardio",
+            "odd": 0
+        },
+        {
+            "keyword": "allterrain3",
+            "code": "terrain-boots",
+            "odd": 0
+        },
+        {
+            "keyword": "allterrain3",
+            "code": "cardio",
+            "odd": 0
+        },
+        {
+            "keyword": "allterrain3",
+            "code": "heavy-armor",
+            "odd": 0
         },
         {
             "keyword": "antitank",
             "code": "commando",
-            "odd": 100
-        },
-        {
-            "keyword": "antitank",
-            "code": "rpg",
             "odd": 100
         },
         {
@@ -39,11 +74,6 @@
         {
             "keyword": "antitank",
             "code": "mines",
-            "odd": 100
-        },
-        {
-            "keyword": "antitank",
-            "code": "at-turret",
             "odd": 100
         },
         {
@@ -77,6 +107,26 @@
             "odd": 100
         },
         {
+            "keyword": "antitank",
+            "code": "at-turret",
+            "odd": 100
+        },
+        {
+            "keyword": "antitank",
+            "code": "rpg",
+            "odd": 100
+        },
+        {
+            "keyword": "antitank",
+            "code": "eat17",
+            "odd": 100
+        },
+        {
+            "keyword": "antitank",
+            "code": "rumbler",
+            "odd": 100
+        },
+        {
             "keyword": "rs",
             "code": "distractor",
             "odd": 0
@@ -85,6 +135,86 @@
             "keyword": "rs",
             "code": "uav",
             "odd": 0
+        },
+        {
+            "keyword": "samplehunt2-1",
+            "code": "distractor",
+            "odd": 50
+        },
+        {
+            "keyword": "samplehunt2-1",
+            "code": "hammer",
+            "odd": 100
+        },
+        {
+            "keyword": "samplehunt2-1",
+            "code": "cardio",
+            "odd": 200
+        },
+        {
+            "keyword": "samplehunt2-2",
+            "code": "distractor",
+            "odd": 50
+        },
+        {
+            "keyword": "samplehunt2-2",
+            "code": "cardio",
+            "odd": 100
+        },
+        {
+            "keyword": "samplehunt2-2",
+            "code": "hammer",
+            "odd": 100
+        },
+        {
+            "keyword": "samplehunt2-3",
+            "code": "distractor",
+            "odd": 50
+        },
+        {
+            "keyword": "samplehunt2-3",
+            "code": "apc",
+            "odd": 100
+        },
+        {
+            "keyword": "samplehunt2-3",
+            "code": "hav",
+            "odd": 100
+        },
+        {
+            "keyword": "samplehunt2-3",
+            "code": "hammer",
+            "odd": 100
+        },
+        {
+            "keyword": "samplehunt2-3",
+            "code": "cardio",
+            "odd": 200
+        },
+        {
+            "keyword": "samplehunt2-4",
+            "code": "cardio",
+            "odd": 200
+        },
+        {
+            "keyword": "samplehunt2-4",
+            "code": "hammer",
+            "odd": 100
+        },
+        {
+            "keyword": "samplehunt2-4",
+            "code": "hav",
+            "odd": 100
+        },
+        {
+            "keyword": "samplehunt2-4",
+            "code": "apc",
+            "odd": 100
+        },
+        {
+            "keyword": "samplehunt2-4",
+            "code": "distractor",
+            "odd": 50
         }
     ],
     "loadouts": [

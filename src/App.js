@@ -26,7 +26,8 @@ class App extends Component {
       playerNumber: 1,
       missionType: 'objective',
       antiTankPower: 'YES',
-      sampleHunt: 'NO',
+      terrainAssistance: 'allterrain1',
+      sampleHunt: '',
       difficulty: '',
       loadout: blankLoadout
     };
@@ -34,6 +35,7 @@ class App extends Component {
     this.setPlayerNumber = this.setPlayerNumber.bind(this);
     this.setMissionType = this.setMissionType.bind(this);
     this.setSampleHunt = this.setSampleHunt.bind(this);
+    this.setTerrainAssistance = this.setTerrainAssistance.bind(this);
     this.setAntiTankPower = this.setAntiTankPower.bind(this);
     this.setDifficulty = this.setDifficulty.bind(this);
     this.generateLoadout = this.generateLoadout.bind(this);
@@ -48,6 +50,11 @@ class App extends Component {
   setMissionType = (event) => {
     this.setState({ missionType: event.target.value });
   };
+
+  //set give terrain boot
+  setTerrainAssistance = (event) => {
+    this.setState({ terrainAssistance: event.target.value });
+  }
 
   //set give UAV drone
   setSampleHunt = (event) => {
@@ -79,6 +86,14 @@ class App extends Component {
       });
     }
 
+    //train assistance
+    if (this.state.terrainAssistance !== '') {
+      let customLoadout = db.get('levels').filter({ keyword: this.state.terrainAssistance }).value();
+      _.forEach(customLoadout, function (loadout) {
+        db.get('loadouts').find({ code: loadout.code }).assign({ odd: loadout.odd }).write();
+      });
+    }
+
     //lazy counter to keep track some logic
     let rawData = null;
     let stratagemLimitCounter = {
@@ -86,38 +101,81 @@ class App extends Component {
       'Secondary': this.state.playerNumber, //secondary weapon
     };
 
+    //get remaining counter
+    const getRemaining = (remainOfWhat) => {
+      let totalCounter = 0;
+      switch (remainOfWhat) {
+        case 'stratagems':
+          totalCounter = (this.state.playerNumber * 4) - db.get('selectedLoadouts').filter({ type1: remainOfWhat }).size();
+          break;
+
+        default:
+          totalCounter = this.state.playerNumber - db.get('selectedLoadouts').filter({ type1: remainOfWhat }).size();
+      }
+      return totalCounter;
+    }
+
     //remove a loadout
     const removeLoadout = (loadoutType, specialFilter = '', totalToRemove = 1) => {
 
-      let loadoutsToRemove = db.get('selectedLoadouts').filter((record) => {
+      for (let aa = 0; aa < totalToRemove; aa++) {
+
+        let loadoutsToRemove = null;
 
         switch (specialFilter) {
 
           case 'resupply':
-            return (
-              record.atr_resupply === null &&
-              record.type1 === loadoutType &&
-              record.fix === false
-            );
+            loadoutsToRemove = db.get('selectedLoadouts').filter((record) => {
+              return (
+                record.atr_resupply === null &&
+                record.type1 === loadoutType &&
+                record.fix === false
+              );
+            }).value();
+
+            //fallback if there is nothing to remove
+            if (_.isEmpty(loadoutsToRemove)) {
+              loadoutsToRemove = db.get('selectedLoadouts').filter((record) => {
+                return (
+                  record.type1 === loadoutType &&
+                  record.fix === false
+                );
+              }).value();
+            }
             break;
 
           case 'antitank':
-            return (
-              record.attr_atpower === null &&
-              record.type1 === loadoutType &&
-              record.fix === false
-            );
+            loadoutsToRemove = db.get('selectedLoadouts').filter((record) => {
+              return (
+                record.attr_atpower === null &&
+                record.type1 === loadoutType &&
+                record.fix === false
+              );
+            }).value();
+
+            //fallback if there is nothing to remove
+            if (_.isEmpty(loadoutsToRemove)) {
+              loadoutsToRemove = db.get('selectedLoadouts').filter((record) => {
+                return (
+                  record.type1 === loadoutType &&
+                  record.fix === false
+                );
+              }).value();
+            }
             break;
 
           default:
-            return (
-              record.type1 === loadoutType &&
-              record.fix === false
-            )
+            loadoutsToRemove = db.get('selectedLoadouts').filter((record) => {
+              return (
+                record.type1 === loadoutType &&
+                record.fix === false
+              );
+            }).value();
         }
-      }).value();
-      let chosenLoadout = randomizer.sample(_.map(loadoutsToRemove, 'id'), totalToRemove, false);
-      db.get('selectedLoadouts').remove({ id: `${chosenLoadout}` }).write();
+
+        let chosenLoadout = randomizer.sample(_.map(loadoutsToRemove, 'id'), 1, false);
+        db.get('selectedLoadouts').remove({ id: `${chosenLoadout}` }).write();
+      }
     }
 
     /**
@@ -135,25 +193,36 @@ class App extends Component {
 
         db.get('loadouts').find({ code: loadout.code }).assign({
           taken: loadout.taken + 1, //count number of loadout being taken
-          odd: Math.min(100, Math.ceil(loadout.odd / 2)) //recude the odd of get selected by half
+          // odd: Math.min(100, Math.ceil(loadout.odd / 2)) //reduce the odd of get selected by half
+          odd: Math.max(0, loadout.odd - 50) //reduce the odd of get by 50
         }).write();
 
         //debug: to check fix loadout
-        if (fixLoadout === true) {
-          console.log(loadout);
-        }
+        // if (fixLoadout === true) {
+        //   console.log(`GIVEN LOADOUT: ${loadout.code}`);
+        // }
+        // else {
+        //   console.log(`GET LOADOUT: ${loadout.code}`);
+        // }
 
         //insert into selectedLoadouts
         loadout.id = shortid.generate();
         loadout.fix = fixLoadout;
         db.get('selectedLoadouts').push(loadout).write();
 
-        //TODO / IDEA
-        //should not get 2 UAV, and maybe others few item should not get twice
+        //some item should only be get 1 (eg: UAV)
+        if (loadout.code === 'uav' || loadout.code === 'distractor' || loadout.code === 'rep80') {
+          db.get('loadouts').find({ code: loadout.code }).assign({ odd: 0 }).write();
+        }
 
         //maximum backpacks depend on total player
         if (loadout.type2 === 'Backpacks') {
           stratagemLimitCounter['Backpacks']--;
+
+          if (loadout.code === 'jump-pack') {
+            stratagemLimitCounter['Backpacks']--;
+          }
+
           if (0 >= stratagemLimitCounter['Backpacks']) {
             db.get('loadouts').filter({ type2: 'Backpacks' }).each((record) => {
               record.odd = 0
@@ -231,22 +300,80 @@ class App extends Component {
       );
     }
 
+    //SMART: give sample hunt capabilities
+    if (this.state.sampleHunt !== '') {
+      switch (this.state.sampleHunt) {
+
+        //give UAV only
+        case 'samplehunt1':
+          updateLoadout(['uav'], true);
+          break;
+
+        //give UAV and more
+        case 'samplehunt2':
+          updateLoadout(['uav'], true);
+          let customLoadout = db.get('levels').filter({ keyword: `samplehunt2-${this.state.playerNumber}` }).value();
+          if (!_.isEmpty(customLoadout)) {
+            let totalLoadoutGiven = randomizer.sample(_.range(1, this.state.playerNumber + 1), 1)[0];
+            let chosenLoadout = randomizer.sample(
+              _.map(customLoadout, 'code'), totalLoadoutGiven, true, _.map(customLoadout, 'odd')
+            );
+            updateLoadout(chosenLoadout, true);
+          }
+          break;
+
+        default: // do nothing
+      }
+    }
+
+    //SMART: give terrain relief
+    if (this.state.terrainAssistance === 'allterrain2') {
+      if (this.state.playerNumber === 1) {
+        updateLoadout(randomizer.sample(['terrain-boots', 'jump-pack'], 1), true);
+      }
+      else {
+
+        //decide how many terrain boot
+        let totalTerrainBoots = randomizer.sample(_.range(this.state.playerNumber + 1), 1)[0];
+        // console.log(`TOTAL TERRAIN BOOT: ${totalTerrainBoots}`);
+        for (let aa = 0; aa < totalTerrainBoots; aa++) {
+          updateLoadout(['terrain-boots'], true);
+        }
+
+        //balance will get jump-pack
+        let totalJumpPack = Math.ceil((this.state.playerNumber - totalTerrainBoots) / 2);
+        if (totalJumpPack > 0) {
+
+          //new bug: all player have to use jump-pack. but then they got recoilless-rifle, which a bag cannot equip
+          //new bug: if enable all, player get all fix stratagem, so when supply want to insert, its already full and cannot remove
+
+          //prevent from giving backpack but cannot use
+          // stratagemLimitCounter['Backpacks'] = totalTerrainBoots; //this has BUG but dont know how to solve
+          for (let bb = 0; bb < totalJumpPack; bb++) {
+            updateLoadout(['jump-pack'], true);
+          }
+        }
+      }
+    }
+
     //get random perks
-    for (let bb = 0; bb < this.state.playerNumber; bb++) {
+    let remainingPerks = getRemaining('perks');
+    for (let bb = 0; bb < remainingPerks; bb++) {
       let perks = db.get('loadouts').filter((record) => {
         return record.type1 === 'perks' && record.odd > 0
       }).value();
       updateLoadout(
-        randomizer.sample(
-          _.map(perks, 'code'), 1, false, _.map(perks, 'odd'))
+        randomizer.sample(_.map(perks, 'code'), 1, false, _.map(perks, 'odd'))
       );
     }
 
-    let remainingStratagem = (this.state.playerNumber * 4) - db.get('selectedLoadouts').filter({ type1: 'stratagems' }).size();
+    // console.log(db.get('loadouts').value()); //debug
 
     //get random stratagem
     //will not give Resupply & Resupply Pack (this will be done later)
-    for (var aa = 0; aa < remainingStratagem; aa++) {
+    // console.log(`REMAINING STRATAGEM: ${getRemaining('stratagems')}`); //debug
+    let remainingStratagems = getRemaining('stratagems');
+    for (var aa = 0; aa < remainingStratagems; aa++) {
       let stratagems = db.get('loadouts').filter((record) => {
         return record.type1 === 'stratagems' && record.odd > 0
       }).value();
@@ -272,17 +399,13 @@ class App extends Component {
 
       //give random AT stratagem to player
       if (atStratagemToGive > 0) {
-
-        // alert("GOT AT POWER ADDITION"); //debug
-
         let customLoadout = db.get('levels').filter({ keyword: 'antitank' }).value();
         if (!_.isEmpty(customLoadout)) {
+          // console.log(`AT POWER, WILL GET ${atStratagemToGive} STRATAGEM(S)`); //debug
           let chosenLoadout = randomizer.sample(
             _.map(customLoadout, 'code'), atStratagemToGive, true, _.map(customLoadout, 'odd')
           );
-
           removeLoadout('stratagems', 'antitank', atStratagemToGive);
-
           updateLoadout(chosenLoadout, true);
         }
       }
@@ -314,12 +437,15 @@ class App extends Component {
 
       //if applicable, have 50% to get resupply-pack
       let ammoExtra = ['resupply'];
-      if (stratagemLimitCounter['Backpacks'] !== 0) {
+      if (stratagemLimitCounter['Backpacks'] > 0) {
         ammoExtra.push('resupply-pack');
       }
 
       updateLoadout(randomizer.sample(ammoExtra, 1, false), true);
     }
+
+    //DEBUG
+    console.log(`REMAINING BACKPACK SLOT IS : ${stratagemLimitCounter['Backpacks']}`);
 
     //list of loadouts assigned
     this.setState({ loadout: assignLoadout(this.state.playerNumber) });
@@ -361,7 +487,6 @@ class App extends Component {
                   <th scope="row">Mission type</th>
                   <td>
                     <select value={this.state.missionType} onChange={this.setMissionType}>
-                      <option value=''>Dont care</option>
                       <option value='objective'>Objective</option>
                       <option value='rs'>Retaliatory Strike</option>
                       <option value='boss'>Boss fight</option>
@@ -375,9 +500,9 @@ class App extends Component {
                   <th scope="row">Do sample hunt</th>
                   <td>
                     <select value={this.state.sampleHunt} onChange={this.setSampleHunt}>
-                      <option value='NO'>NO</option>
-                      <option value='uav'>UAV Drone</option>
-                      <option value='more'>UAV Drone & More</option>
+                      <option value=''>Dont calculate</option>
+                      <option value='samplehunt1'>UAV Drone</option>
+                      <option value='samplehunt2'>UAV Drone & More</option>
                     </select>
                   </td>
                   <td>Enable this if you are doing sample hunt.</td>
@@ -387,10 +512,11 @@ class App extends Component {
                 <tr>
                   <th scope="row">Snowy terrain</th>
                   <td>
-                    <select value={this.state.sampleHunt} onChange={this.setSampleHunt}>
-                      <option value='NO'>NO</option>
-                      <option value='option1'>Terrain Boots or Jump Pack</option>
-                      <option value='option2'>Other than Terrain Boots</option>
+                    <select value={this.state.terrainAssistance} onChange={this.setTerrainAssistance}>
+                      <option value=''>Dont calculate</option>
+                      <option value='allterrain1'>NO</option>
+                      <option value='allterrain2'>Terrain Boots or Jump Pack</option>
+                      <option value='allterrain3'>Other than Terrain Boots</option>
                     </select>
                   </td>
                   <td>Give you random relief on a a snowy terrain or swamp.</td>
@@ -401,7 +527,7 @@ class App extends Component {
                   <th scope="row">Anti tank stratragem</th>
                   <td>
                     <select value={this.state.antiTankPower} onChange={this.setAntiTankPower}>
-                      <option value='NO'>NO</option>
+                      <option value=''>Dont calculate</option>
                       <option value='YES'>YES</option>
                     </select>
                   </td>
