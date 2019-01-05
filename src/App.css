@@ -31,6 +31,10 @@
   height: 75px;
 }
 
+.agift {
+  border: 2px solid black;
+}
+
 .smalltext {
   font-size: 12px;
 }

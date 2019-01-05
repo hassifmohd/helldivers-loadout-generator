@@ -1,8 +1,94 @@
 {
     "selectedLoadouts": [],
+    "levels": [
+        {
+            "keyword": "antitank",
+            "code": "eat17",
+            "odd": 100
+        },
+        {
+            "keyword": "antitank",
+            "code": "rumbler",
+            "odd": 100
+        },
+        {
+            "keyword": "antitank",
+            "code": "commando",
+            "odd": 100
+        },
+        {
+            "keyword": "antitank",
+            "code": "rpg",
+            "odd": 100
+        },
+        {
+            "keyword": "antitank",
+            "code": "lumberer",
+            "odd": 100
+        },
+        {
+            "keyword": "antitank",
+            "code": "hav",
+            "odd": 100
+        },
+        {
+            "keyword": "antitank",
+            "code": "bastion",
+            "odd": 100
+        },
+        {
+            "keyword": "antitank",
+            "code": "mines",
+            "odd": 100
+        },
+        {
+            "keyword": "antitank",
+            "code": "at-turret",
+            "odd": 100
+        },
+        {
+            "keyword": "antitank",
+            "code": "missile-barrage",
+            "odd": 100
+        },
+        {
+            "keyword": "antitank",
+            "code": "railcannon",
+            "odd": 100
+        },
+        {
+            "keyword": "antitank",
+            "code": "shredder",
+            "odd": 100
+        },
+        {
+            "keyword": "antitank",
+            "code": "sledge-arty",
+            "odd": 100
+        },
+        {
+            "keyword": "antitank",
+            "code": "thunderer",
+            "odd": 100
+        },
+        {
+            "keyword": "antitank",
+            "code": "vindicator",
+            "odd": 100
+        },
+        {
+            "keyword": "rs",
+            "code": "distractor",
+            "odd": 0
+        },
+        {
+            "keyword": "rs",
+            "code": "uav",
+            "odd": 0
+        }
+    ],
     "loadouts": [
         {
-            "id": 1,
             "type1": "weapon-main",
             "type2": "Assault Rifles",
             "code": "liberator",
@@ -11,10 +97,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": 100,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 2,
             "type1": "weapon-main",
             "type2": "Assault Rifles",
             "code": "patriot",
@@ -23,10 +109,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": 150,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 3,
             "type1": "weapon-main",
             "type2": "Assault Rifles",
             "code": "justice",
@@ -35,10 +121,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": 100,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 4,
             "type1": "weapon-main",
             "type2": "Assault Rifles",
             "code": "paragon",
@@ -47,10 +133,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": 200,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 5,
             "type1": "weapon-main",
             "type2": "LMG",
             "code": "stalwart",
@@ -59,10 +145,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": 100,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 6,
             "type1": "weapon-main",
             "type2": "Shotguns",
             "code": "breaker",
@@ -71,10 +157,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": 200,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 7,
             "type1": "weapon-main",
             "type2": "Shotguns",
             "code": "punisher",
@@ -83,10 +169,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": 100,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 8,
             "type1": "weapon-main",
             "type2": "Shotguns",
             "code": "double-freedom",
@@ -95,10 +181,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": 100,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 9,
             "type1": "weapon-main",
             "type2": "SMG",
             "code": "defender",
@@ -107,10 +193,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": 100,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 10,
             "type1": "weapon-main",
             "type2": "SMG",
             "code": "knight",
@@ -119,10 +205,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": 150,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 11,
             "type1": "weapon-main",
             "type2": "SMG",
             "code": "ninja",
@@ -131,10 +217,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": 100,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 12,
             "type1": "weapon-main",
             "type2": "Snipers",
             "code": "camper",
@@ -143,10 +229,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": 100,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 13,
             "type1": "weapon-main",
             "type2": "Snipers",
             "code": "rail-gun",
@@ -155,10 +241,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": 100,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 14,
             "type1": "weapon-main",
             "type2": "Snipers",
             "code": "constitution",
@@ -167,10 +253,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": 100,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 15,
             "type1": "weapon-main",
             "type2": "Explosive",
             "code": "suppressor",
@@ -179,10 +265,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": 100,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 16,
             "type1": "weapon-main",
             "type2": "Explosive",
             "code": "scorcher",
@@ -191,10 +277,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": 100,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 17,
             "type1": "weapon-main",
             "type2": "Laser",
             "code": "scythe",
@@ -203,10 +289,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 18,
             "type1": "weapon-main",
             "type2": "Laser",
             "code": "sickle",
@@ -215,10 +301,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 19,
             "type1": "weapon-main",
             "type2": "Laser",
             "code": "tanto",
@@ -227,10 +313,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 20,
             "type1": "weapon-main",
             "type2": "Laser",
             "code": "trident",
@@ -239,10 +325,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 21,
             "type1": "weapon-main",
             "type2": "Arc",
             "code": "arc-thrower",
@@ -251,10 +337,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 22,
             "type1": "weapon-main",
             "type2": "Arc",
             "code": "arc-shotgun",
@@ -263,10 +349,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 23,
             "type1": "perks",
             "type2": "Others",
             "code": "laser-aim-module",
@@ -275,10 +361,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 24,
             "type1": "perks",
             "type2": "Grenades",
             "code": "stun-grenades",
@@ -287,10 +373,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": 75,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 25,
             "type1": "perks",
             "type2": "Others",
             "code": "heavy-armor",
@@ -299,10 +385,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 26,
             "type1": "perks",
             "type2": "Others",
             "code": "stratagem-priority",
@@ -311,10 +397,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 27,
             "type1": "perks",
             "type2": "Others",
             "code": "cardio",
@@ -323,10 +409,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 28,
             "type1": "perks",
             "type2": "Others",
             "code": "autoinjector",
@@ -335,10 +421,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 29,
             "type1": "perks",
             "type2": "Grenades",
             "code": "smoke-grenades",
@@ -347,10 +433,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": 75,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 30,
             "type1": "perks",
             "type2": "Grenades",
             "code": "incendiary-grenades",
@@ -359,10 +445,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": 75,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 31,
             "type1": "perks",
             "type2": "Others",
             "code": "displacement-field",
@@ -371,10 +457,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 32,
             "type1": "perks",
             "type2": "Others",
             "code": "strong-arm",
@@ -383,10 +469,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 33,
             "type1": "perks",
             "type2": "Sidearms",
             "code": "gunslinger",
@@ -395,10 +481,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": 75,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 34,
             "type1": "perks",
             "type2": "Sidearms",
             "code": "pyro",
@@ -407,10 +493,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": 75,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 35,
             "type1": "perks",
             "type2": "Sidearms",
             "code": "singe",
@@ -419,10 +505,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": 75,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 36,
             "type1": "perks",
             "type2": "Others",
             "code": "terrain-boots",
@@ -431,10 +517,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 37,
             "type1": "perks",
             "type2": "Others",
             "code": "precision-call",
@@ -443,10 +529,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 38,
             "type1": "stratagems",
             "type2": "Support",
             "code": "resupply",
@@ -455,10 +541,10 @@
             "odd": 0,
             "taken": 0,
             "atr_resupply": 0,
-            "attr_cooldown": 180
+            "attr_cooldown": 180,
+            "attr_atpower": null
         },
         {
-            "id": 39,
             "type1": "stratagems",
             "type2": "Secondary",
             "code": "rep80",
@@ -467,10 +553,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 40,
             "type1": "stratagems",
             "type2": "Backpacks",
             "code": "angel",
@@ -479,10 +565,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": 25,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 41,
             "type1": "stratagems",
             "type2": "Backpacks",
             "code": "guard-dog",
@@ -491,10 +577,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": 25,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 42,
             "type1": "stratagems",
             "type2": "Backpacks",
             "code": "jump-pack",
@@ -503,10 +589,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 43,
             "type1": "stratagems",
             "type2": "Backpacks",
             "code": "resupply-pack",
@@ -515,10 +601,10 @@
             "odd": 0,
             "taken": 0,
             "atr_resupply": 0,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 44,
             "type1": "stratagems",
             "type2": "Backpacks",
             "code": "shield-generator",
@@ -527,10 +613,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 45,
             "type1": "stratagems",
             "type2": "Backpacks",
             "code": "kinetic-shield",
@@ -539,10 +625,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 46,
             "type1": "stratagems",
             "type2": "Secondary",
             "code": "dum-dum",
@@ -551,10 +637,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": 100,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 47,
             "type1": "stratagems",
             "type2": "Secondary",
             "code": "eat17",
@@ -563,10 +649,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": 100
         },
         {
-            "id": 48,
             "type1": "stratagems",
             "type2": "Secondary",
             "code": "incinerator",
@@ -575,10 +661,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": 50,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 49,
             "type1": "stratagems",
             "type2": "Secondary",
             "code": "laser-cannon",
@@ -587,10 +673,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 50,
             "type1": "stratagems",
             "type2": "Secondary",
             "code": "rumbler",
@@ -599,10 +685,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": 50,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": 60
         },
         {
-            "id": 51,
             "type1": "stratagems",
             "type2": "Secondary",
             "code": "mg94",
@@ -611,10 +697,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": 100,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 52,
             "type1": "stratagems",
             "type2": "Secondary",
             "code": "mgx42",
@@ -623,10 +709,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 53,
             "type1": "stratagems",
             "type2": "Secondary",
             "code": "commando",
@@ -635,10 +721,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": 50,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": 100
         },
         {
-            "id": 54,
             "type1": "stratagems",
             "type2": "Secondary",
             "code": "obliterator",
@@ -647,10 +733,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": 75,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 55,
             "type1": "stratagems",
             "type2": "Secondary",
             "code": "demolisher",
@@ -659,10 +745,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": 180
+            "attr_cooldown": 180,
+            "attr_atpower": 100
         },
         {
-            "id": 56,
             "type1": "stratagems",
             "type2": "Secondary",
             "code": "rpg",
@@ -671,10 +757,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": 50,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": 100
         },
         {
-            "id": 57,
             "type1": "stratagems",
             "type2": "Secondary",
             "code": "avenger",
@@ -683,10 +769,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": 75,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 58,
             "type1": "stratagems",
             "type2": "Exosuit",
             "code": "walker",
@@ -695,10 +781,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 59,
             "type1": "stratagems",
             "type2": "Exosuit",
             "code": "obsidian",
@@ -707,10 +793,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 60,
             "type1": "stratagems",
             "type2": "Exosuit",
             "code": "lumberer",
@@ -719,10 +805,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": 80
         },
         {
-            "id": 61,
             "type1": "stratagems",
             "type2": "Vehicles",
             "code": "apc",
@@ -731,10 +817,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 62,
             "type1": "stratagems",
             "type2": "Vehicles",
             "code": "hav",
@@ -743,10 +829,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": 80
         },
         {
-            "id": 63,
             "type1": "stratagems",
             "type2": "Vehicles",
             "code": "bastion",
@@ -755,10 +841,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": 60
         },
         {
-            "id": 64,
             "type1": "stratagems",
             "type2": "Vehicles",
             "code": "hammer",
@@ -767,10 +853,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 65,
             "type1": "stratagems",
             "type2": "Turret",
             "code": "tesla",
@@ -779,10 +865,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": 180
+            "attr_cooldown": 180,
+            "attr_atpower": null
         },
         {
-            "id": 66,
             "type1": "stratagems",
             "type2": "Turret",
             "code": "gl-launcher-turret",
@@ -791,10 +877,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": 120
+            "attr_cooldown": 120,
+            "attr_atpower": null
         },
         {
-            "id": 67,
             "type1": "stratagems",
             "type2": "Turret",
             "code": "minigun-turret",
@@ -803,10 +889,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": 180
+            "attr_cooldown": 180,
+            "attr_atpower": null
         },
         {
-            "id": 68,
             "type1": "stratagems",
             "type2": "Turret",
             "code": "railcannon-turret",
@@ -815,10 +901,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": 120
+            "attr_cooldown": 120,
+            "attr_atpower": null
         },
         {
-            "id": 69,
             "type1": "stratagems",
             "type2": "Emplacement",
             "code": "mines",
@@ -827,10 +913,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": 45
+            "attr_cooldown": 45,
+            "attr_atpower": 40
         },
         {
-            "id": 70,
             "type1": "stratagems",
             "type2": "Emplacement",
             "code": "stun-mines",
@@ -839,10 +925,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": 30
+            "attr_cooldown": 30,
+            "attr_atpower": null
         },
         {
-            "id": 71,
             "type1": "stratagems",
             "type2": "Emplacement",
             "code": "barb-wire",
@@ -851,10 +937,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 72,
             "type1": "stratagems",
             "type2": "Turret",
             "code": "at-turret",
@@ -863,10 +949,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": 180
+            "attr_cooldown": 180,
+            "attr_atpower": 100
         },
         {
-            "id": 73,
             "type1": "stratagems",
             "type2": "Support",
             "code": "distractor",
@@ -875,22 +961,22 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": 120
+            "attr_cooldown": 120,
+            "attr_atpower": null
         },
         {
-            "id": 74,
             "type1": "stratagems",
             "type2": "Support",
             "code": "uav",
-            "name": "Humblebee UAV drone",
+            "name": "Humblebee UAV Drone",
             "style": "defense",
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": null
+            "attr_cooldown": null,
+            "attr_atpower": null
         },
         {
-            "id": 75,
             "type1": "stratagems",
             "type2": "Airstrike",
             "code": "thunderer-smoke",
@@ -899,10 +985,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": 100
+            "attr_cooldown": 100,
+            "attr_atpower": null
         },
         {
-            "id": 76,
             "type1": "stratagems",
             "type2": "Airstrike",
             "code": "airstrike",
@@ -911,10 +997,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": 90
+            "attr_cooldown": 90,
+            "attr_atpower": 80
         },
         {
-            "id": 77,
             "type1": "stratagems",
             "type2": "Airstrike",
             "code": "cas",
@@ -923,10 +1009,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": 75
+            "attr_cooldown": 75,
+            "attr_atpower": 60
         },
         {
-            "id": 78,
             "type1": "stratagems",
             "type2": "Airstrike",
             "code": "heavy-strafing",
@@ -935,10 +1021,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": 35
+            "attr_cooldown": 35,
+            "attr_atpower": null
         },
         {
-            "id": 79,
             "type1": "stratagems",
             "type2": "Airstrike",
             "code": "incendiary-bombs",
@@ -947,10 +1033,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": 45
+            "attr_cooldown": 45,
+            "attr_atpower": null
         },
         {
-            "id": 80,
             "type1": "stratagems",
             "type2": "Airstrike",
             "code": "missile-barrage",
@@ -959,10 +1045,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": 180
+            "attr_cooldown": 180,
+            "attr_atpower": 60
         },
         {
-            "id": 81,
             "type1": "stratagems",
             "type2": "Airstrike",
             "code": "orbital-laser",
@@ -971,10 +1057,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": 180
+            "attr_cooldown": 180,
+            "attr_atpower": null
         },
         {
-            "id": 82,
             "type1": "stratagems",
             "type2": "Airstrike",
             "code": "railcannon",
@@ -983,10 +1069,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": 60
+            "attr_cooldown": 60,
+            "attr_atpower": 100
         },
         {
-            "id": 83,
             "type1": "stratagems",
             "type2": "Airstrike",
             "code": "shredder",
@@ -995,10 +1081,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": 210
+            "attr_cooldown": 210,
+            "attr_atpower": 40
         },
         {
-            "id": 84,
             "type1": "stratagems",
             "type2": "Airstrike",
             "code": "sledge-arty",
@@ -1007,10 +1093,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": 120
+            "attr_cooldown": 120,
+            "attr_atpower": 40
         },
         {
-            "id": 85,
             "type1": "stratagems",
             "type2": "Airstrike",
             "code": "static-field",
@@ -1019,10 +1105,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": 45
+            "attr_cooldown": 45,
+            "attr_atpower": null
         },
         {
-            "id": 86,
             "type1": "stratagems",
             "type2": "Airstrike",
             "code": "strafing",
@@ -1031,10 +1117,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": 10
+            "attr_cooldown": 10,
+            "attr_atpower": null
         },
         {
-            "id": 87,
             "type1": "stratagems",
             "type2": "Airstrike",
             "code": "thunderer",
@@ -1043,10 +1129,10 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": 180
+            "attr_cooldown": 180,
+            "attr_atpower": 40
         },
         {
-            "id": 88,
             "type1": "stratagems",
             "type2": "Airstrike",
             "code": "vindicator",
@@ -1055,7 +1141,8 @@
             "odd": 100,
             "taken": 0,
             "atr_resupply": null,
-            "attr_cooldown": 10
+            "attr_cooldown": 10,
+            "attr_atpower": 100
         }
     ]
 }
