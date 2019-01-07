@@ -3,57 +3,62 @@
     "levels": [
         {
             "keyword": "allterrain1",
-            "code": "heavy-armor",
-            "odd": 0
-        },
-        {
-            "keyword": "allterrain1",
             "code": "terrain-boots",
             "odd": 0
         },
         {
-            "keyword": "allterrain1",
+            "keyword": "allterrain2",
+            "code": "terrain-boots",
+            "odd": 100
+        },
+        {
+            "keyword": "allterrain2",
+            "code": "obsidian",
+            "odd": 100
+        },
+        {
+            "keyword": "allterrain2",
+            "code": "walker",
+            "odd": 100
+        },
+        {
+            "keyword": "allterrain2",
+            "code": "lumberer",
+            "odd": 100
+        },
+        {
+            "keyword": "allterrain2",
             "code": "cardio",
             "odd": 0
         },
         {
             "keyword": "allterrain2",
             "code": "heavy-armor",
-            "odd": 0
-        },
-        {
-            "keyword": "allterrain2",
-            "code": "terrain-boots",
             "odd": 0
         },
         {
             "keyword": "allterrain2",
             "code": "jump-pack",
-            "odd": 0
+            "odd": 100
         },
         {
             "keyword": "allterrain2",
-            "code": "cardio",
-            "odd": 0
+            "code": "apc",
+            "odd": 100
         },
         {
-            "keyword": "allterrain3",
-            "code": "terrain-boots",
-            "odd": 0
+            "keyword": "allterrain2",
+            "code": "hav",
+            "odd": 100
         },
         {
-            "keyword": "allterrain3",
-            "code": "cardio",
-            "odd": 0
+            "keyword": "allterrain2",
+            "code": "bastion",
+            "odd": 100
         },
         {
-            "keyword": "allterrain3",
-            "code": "heavy-armor",
-            "odd": 0
-        },
-        {
-            "keyword": "antitank",
-            "code": "commando",
+            "keyword": "allterrain2",
+            "code": "hammer",
             "odd": 100
         },
         {
@@ -127,6 +132,11 @@
             "odd": 100
         },
         {
+            "keyword": "antitank",
+            "code": "commando",
+            "odd": 100
+        },
+        {
             "keyword": "rs",
             "code": "distractor",
             "odd": 0
@@ -153,13 +163,13 @@
         },
         {
             "keyword": "samplehunt2-2",
-            "code": "distractor",
-            "odd": 50
+            "code": "cardio",
+            "odd": 100
         },
         {
             "keyword": "samplehunt2-2",
-            "code": "cardio",
-            "odd": 100
+            "code": "distractor",
+            "odd": 50
         },
         {
             "keyword": "samplehunt2-2",
@@ -193,6 +203,11 @@
         },
         {
             "keyword": "samplehunt2-4",
+            "code": "distractor",
+            "odd": 50
+        },
+        {
+            "keyword": "samplehunt2-4",
             "code": "cardio",
             "odd": 200
         },
@@ -210,11 +225,6 @@
             "keyword": "samplehunt2-4",
             "code": "apc",
             "odd": 100
-        },
-        {
-            "keyword": "samplehunt2-4",
-            "code": "distractor",
-            "odd": 50
         }
     ],
     "loadouts": [

@@ -79,7 +79,7 @@ const TableRow = (props) => {
         <tr>
             <th scope="row">{props.name}</th>
             <td>{displayWeapon(props.weapon)}</td>
-            <td>{displayWeapon(props.perk)}</td>
+            <td>{displayPerk(props.perk)}</td>
             <td>{displayStratagem(props.stratagems, 0)}</td>
             <td>{displayStratagem(props.stratagems, 1)}</td>
             <td>{displayStratagem(props.stratagems, 2)}</td>

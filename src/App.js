@@ -86,9 +86,9 @@ class App extends Component {
       });
     }
 
-    //train assistance
+    //terrain relief, remove certain loadouts
     if (this.state.terrainAssistance !== '') {
-      let customLoadout = db.get('levels').filter({ keyword: this.state.terrainAssistance }).value();
+      let customLoadout = db.get('levels').filter({ keyword: this.state.terrainAssistance, odd: 0 }).value();
       _.forEach(customLoadout, function (loadout) {
         db.get('loadouts').find({ code: loadout.code }).assign({ odd: loadout.odd }).write();
       });
@@ -328,6 +328,16 @@ class App extends Component {
 
     //SMART: give terrain relief
     if (this.state.terrainAssistance === 'allterrain2') {
+      let customLoadout = db.get('levels').filter((record) => {
+        return record.keyword === this.state.terrainAssistance && record.odd > 0
+      }).value();
+      updateLoadout(
+        randomizer.sample(_.map(customLoadout, 'code'), this.state.playerNumber, true, _.map(customLoadout, 'odd')),
+        true
+      );
+    }
+    //below code is too complicated
+    /*if (this.state.terrainAssistance === 'allterrain2') {
       if (this.state.playerNumber === 1) {
         updateLoadout(randomizer.sample(['terrain-boots', 'jump-pack'], 1), true);
       }
@@ -354,7 +364,7 @@ class App extends Component {
           }
         }
       }
-    }
+    }*/
 
     //get random perks
     let remainingPerks = getRemaining('perks');
@@ -445,7 +455,7 @@ class App extends Component {
     }
 
     //DEBUG
-    console.log(`REMAINING BACKPACK SLOT IS : ${stratagemLimitCounter['Backpacks']}`);
+    // console.log(`REMAINING BACKPACK SLOT IS : ${stratagemLimitCounter['Backpacks']}`);
 
     //list of loadouts assigned
     this.setState({ loadout: assignLoadout(this.state.playerNumber) });
@@ -492,7 +502,7 @@ class App extends Component {
                       <option value='boss'>Boss fight</option>
                     </select>
                   </td>
-                  <td>If not related, will remove Distractor Beacon and UAV Drone</td>
+                  <td>Remove Distractor Beacon and UAV Drone for unrelated mission</td>
                 </tr>
 
                 {/* set if need UAV drone */}
@@ -502,10 +512,9 @@ class App extends Component {
                     <select value={this.state.sampleHunt} onChange={this.setSampleHunt}>
                       <option value=''>Dont calculate</option>
                       <option value='samplehunt1'>UAV Drone</option>
-                      <option value='samplehunt2'>UAV Drone & More</option>
                     </select>
                   </td>
-                  <td>Enable this if you are doing sample hunt.</td>
+                  <td>Give UAV Drone</td>
                 </tr>
 
                 {/* set if need all terrain boots */}
@@ -515,11 +524,10 @@ class App extends Component {
                     <select value={this.state.terrainAssistance} onChange={this.setTerrainAssistance}>
                       <option value=''>Dont calculate</option>
                       <option value='allterrain1'>NO</option>
-                      <option value='allterrain2'>Terrain Boots or Jump Pack</option>
-                      <option value='allterrain3'>Other than Terrain Boots</option>
+                      <option value='allterrain2'>Random relief</option>
                     </select>
                   </td>
-                  <td>Give you random relief on a a snowy terrain or swamp.</td>
+                  <td>Will get random relief (perks, jump-pack or vehicle)</td>
                 </tr>
 
                 {/* set if need anti-tank */}
