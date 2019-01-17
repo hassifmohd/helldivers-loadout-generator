@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import {
-  Button, Table, Container, Row, Col,
-  Form, FormGroup, Label, Input, FormText,
-  Jumbotron,
-  Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, CardColumns, CardDeck, CardGroup,
-  ListGroup, ListGroupItem,
-  Media
+  Container, Row, Col, Label,
+  Jumbotron
 } from 'reactstrap';
 import lowDb from 'lowdb';
 import lowDbMemory from 'lowdb/adapters/Memory';
@@ -15,8 +10,9 @@ import dbJson from './db/db.json'; //store loadouts database using json
 import _ from 'lodash';
 import randomizer from 'probability-distributions';
 import shortid from 'shortid';
-import TableRow from './components/TableRow';
 import PlayerBlock from './components/PlayerBlock';
+import InputForm from './components/InputForm';
+import GenerateLoadout from './components/GenerateLoadout';
 // import FbImageLibrary from 'react-fb-image-grid';
 
 //setting up the blank loadout
@@ -27,12 +23,14 @@ const blankLoadout = [
   { name: 'Player 4', weapon: { code: null, name: null }, perk: { code: null, name: null }, stratagems: [] },
 ];
 
+
+
 class App extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      playerNumber: 1,
+      playerNumber: 2,
       missionType: 'objective',
       antiTankPower: 'YES',
       terrainAssistance: 'allterrain1',
@@ -82,6 +80,9 @@ class App extends Component {
 
   //generate the loadout
   generateLoadout = (event) => {
+
+    // let playerLoadout = new GenerateLoadout(this.state);
+    // playerLoadout.generateLoadout();
 
     //setting up the database
     let db = lowDb(new lowDbMemory());
@@ -473,8 +474,10 @@ class App extends Component {
   render() {
 
     return (
+
       <React.Fragment>
 
+        {/* header */}
         <div>
           <Jumbotron className="">
             <h1>YOLODIVE</h1>
@@ -484,83 +487,25 @@ class App extends Component {
         </div>
 
         <Container>
+          {/* input form */}
+          <InputForm
+            {...this.state}
+            setSampleHunt={this.setSampleHunt}
+            setMissionType={this.setMissionType}
+            setPlayerNumber={this.setPlayerNumber}
+            generateLoadout={this.generateLoadout}
+            setTerrainAssistance={this.setTerrainAssistance}
+            setAntiTankPower={this.setAntiTankPower}
+          />
+          <hr />
+
+          {/* random loadout */}
           <Row>
-            <Col>
-              <Form>
-
-                {/* set number of players */}
-                <FormGroup>
-                  <Label for="noofplayer">No of players</Label>
-                  <Input type="select" name="noofplayer" id="noofplayer" value={this.state.playerNumber} onChange={this.setPlayerNumber}>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                  </Input>
-                </FormGroup>
-
-                {/* set mission type */}
-                <FormGroup>
-                  <Label for="missiontype">Mission type</Label>
-                  <Input type="select" name="missiontype" id="missiontype" value={this.state.missionType} onChange={this.setMissionType}>
-                    <option value='objective'>Objective</option>
-                    <option value='rs'>Retaliatory Strike</option>
-                    <option value='boss'>Boss fight</option>
-                  </Input>
-                  <FormText color="muted">Remove Distractor Beacon and UAV Drone for unrelated mission</FormText>
-                </FormGroup>
-
-                {/* set if need UAV drone */}
-                <FormGroup>
-                  <Label for="samplehunt">Do sample hunt</Label>
-                  <Input type="select" name="samplehunt" id="samplehunt" value={this.state.sampleHunt} onChange={this.setSampleHunt}>
-                    <option value=''>Dont calculate</option>
-                    <option value='samplehunt1'>UAV Drone</option>
-                  </Input>
-                  <FormText color="muted">Give UAV Drone</FormText>
-                </FormGroup>
-
-                {/* set if need all terrain boots */}
-                <FormGroup>
-                  <Label for="terrainassistance">Snowy terrain</Label>
-                  <Input type="select" name="terrainassistance" id="terrainassistance" value={this.state.terrainAssistance} onChange={this.setTerrainAssistance}>
-                    <option value=''>Dont calculate</option>
-                    <option value='allterrain1'>NO</option>
-                    <option value='allterrain2'>Random relief</option>
-                  </Input>
-                  <FormText color="muted">Will get random relief (perks, jump-pack or vehicle)</FormText>
-                </FormGroup>
-
-                {/* set if need anti-tank */}
-                <FormGroup>
-                  <Label for="atpower">Anti tank stratragem</Label>
-                  <Input type="select" name="atpower" id="atpower" value={this.state.antiTankPower} onChange={this.setAntiTankPower}>
-                    <option value=''>Dont calculate</option>
-                    <option value='YES'>YES</option>
-                  </Input>
-                  <FormText color="muted">Enable this if you fighting Cyborgs or Bugs. Randomizer will give random anti tank stratagems if you lack of it</FormText>
-                </FormGroup>
-
-                <Button color="primary" onClick={this.generateLoadout} block>Generate loadout</Button>
-              </Form>
-            </Col>
+            <PlayerBlock {...this.state.loadout[0]} />
+            <PlayerBlock {...this.state.loadout[1]} />
+            <PlayerBlock {...this.state.loadout[2]} />
+            <PlayerBlock {...this.state.loadout[3]} />
           </Row>
-
-          <Row>
-            <Col xs="12" sm="6" md="6" lg="3">
-              <PlayerBlock {...this.state.loadout[0]} />
-            </Col>
-            <Col xs="12" sm="6" md="6" lg="3">
-              <PlayerBlock {...this.state.loadout[1]} />
-            </Col>
-            <Col xs="12" sm="6" md="6" lg="3">
-              <PlayerBlock {...this.state.loadout[2]} />
-            </Col>
-            <Col xs="12" sm="6" md="6" lg="3">
-              <PlayerBlock {...this.state.loadout[3]} />
-            </Col>
-          </Row>
-
         </Container>
       </React.Fragment >
     );
