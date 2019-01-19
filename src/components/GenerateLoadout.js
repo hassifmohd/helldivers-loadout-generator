@@ -6,14 +6,6 @@ import _ from 'lodash';
 import randomizer from 'probability-distributions';
 import shortid from 'shortid';
 
-//setting up the blank loadout
-const blankLoadout = [
-    { name: 'Player 1', weapon: { code: null, name: null }, perk: { code: null, name: null }, stratagems: [] },
-    { name: 'Player 2', weapon: { code: null, name: null }, perk: { code: null, name: null }, stratagems: [] },
-    { name: 'Player 3', weapon: { code: null, name: null }, perk: { code: null, name: null }, stratagems: [] },
-    { name: 'Player 4', weapon: { code: null, name: null }, perk: { code: null, name: null }, stratagems: [] },
-];
-
 class GenerateLoadout {
 
     constructor(state) {
@@ -43,10 +35,11 @@ class GenerateLoadout {
         return totalCounter;
     }
 
+    //kirua
     //get loadouts from specific type + with odd more than zero
     getLoadout = (loadoutType) => {
         return this.db.get('loadouts').filter((record) => {
-            return record.type1 === loadoutType && record.odd > 0
+            return (record.type1 === loadoutType && record.odd > 0)
         }).value();
     }
 
@@ -79,6 +72,7 @@ class GenerateLoadout {
         //insert into selectedLoadouts
         loadout.id = shortid.generate();
         loadout.fix = fixLoadout;
+        loadout.player = null;
         this.db.get('selectedLoadouts').push(loadout).write();
 
         //some item should only be get 1 (eg: UAV)
@@ -87,17 +81,18 @@ class GenerateLoadout {
         }
 
         //maximum backpacks depend on total player
-        if (loadout.type2 === 'Backpacks') {
-            this.stratagemLimitCounter['Backpacks']--;
+        if (loadout.attr_backpack > 0) {
+            this.stratagemLimitCounter['Backpacks'] = this.stratagemLimitCounter['Backpacks'] - loadout.attr_backpack;
 
-            if (loadout.code === 'jump-pack') {
-                this.stratagemLimitCounter['Backpacks']--;
-            }
-
+            //if number of bag more than number of player. disable any stratagems with bag
             if (0 >= this.stratagemLimitCounter['Backpacks']) {
-                this.db.get('loadouts').filter({ type2: 'Backpacks' }).each((record) => {
-                    record.odd = 0
-                }).write();
+                this.db.get('loadouts')
+                    .filter((record) => {
+                        return (record.attr_backpack > 0)
+                    })
+                    .each((record) => {
+                        record.odd = 0
+                    }).write();
             }
         }
 
@@ -310,6 +305,9 @@ class GenerateLoadout {
             );
         }
 
+        //terrain relief, remove certain loadouts
+        this.specialTerrainRelief();
+
         //get random perks
         let remainingPerks = this.getRemaining('perks');
         for (let bb = 0; bb < remainingPerks; bb++) {
@@ -321,9 +319,6 @@ class GenerateLoadout {
 
         //remove UAV and distractor beacon for RS or BOSS
         this.specialMissionType();
-
-        //terrain relief, remove certain loadouts
-        this.specialTerrainRelief();
 
         //sample hunt
         this.specialSampleHunt();
@@ -345,59 +340,342 @@ class GenerateLoadout {
         //give ammo. must be done last
         this.specialResupply();
 
-        console.log('SELECTED LOADOUT');
-        console.log(this.db.get('selectedLoadouts').value());
+        // console.log('SELECTED LOADOUT');
+        // console.log(this.db.get('selectedLoadouts').value());
 
         //assign loadout to players
-        return this.assignLoadout();
+        this.assignLoadout();
+
+        return this.sortingLoadout();
     }
 
     //another important function, generateLoadout() is to get random loadout. This function is to assign it
-    assignLoadout = (playerNumber) => {
+    assignLoadout = () => {
+
+        //assign weapons
+        this.assignWeapons();
+
+        //assign perks
+        this.assignPerks();
+
+        //TODO: stratagem priority/strong arm/percision call to get all long cooldown stratagems
+        this.customStratagemPriority();
+
+        //player to receive only one secondary weapon
+        this.customUniqueSecondary();
+
+        //player to receive only one back-pack weapon
+        this.customUniqueBackpack();
+
+        //assign stratagemns
+        this.assignStratagems();
+
+        //TODO: if player weapon in underpower we will assign a proper secondary
+
+        //TODO: not assign laser to shotgun
+
+        // console.log('SELECTED LOADOUT');
+        // console.log(this.db.get('selectedLoadouts').value());
+        // console.log(this.selectedLoadouts);
+    }
+
+    //assign weapons to players
+    assignWeapons = () => {
+        let countPlayer = 0;
+        let loadouts = this.db.get('selectedLoadouts').filter({ type1: 'weapon-main' }).value();
+        loadouts = randomizer.sample(_.map(loadouts, 'id'), this.state.playerNumber, false);
+        _.forEach(loadouts, (loadoutId) => {
+            this.updateAssign(loadoutId, countPlayer);
+            countPlayer++;
+        });
+    }
+
+    // assignWeapon = () => {
+    //     let loadouts = this.db.get('selectedLoadouts').filter({ type1: 'weapon-main' }).sortBy('player').value();
+    //     let playerArray = _.range(this.state.playerNumber);
+    //     let unequipPlayer = _.difference(playerArray, _.map(loadouts, 'player'));
+
+    //     _.forEach(loadouts, (loadout) => {
+    //         if (loadout.player !== null) {
+
+    //         }
+    //     });
+
+    //     console.log(loadouts);
+    //     console.log(playerArray);
+    // }
+
+    //assign perks to players
+    assignPerks = () => {
+        let countPlayer = 0;
+        let loadouts = this.db.get('selectedLoadouts').filter({ type1: 'perks' }).value();
+        loadouts = randomizer.sample(_.map(loadouts, 'id'), this.state.playerNumber, false);
+        _.forEach(loadouts, (loadoutId) => {
+            this.updateAssign(loadoutId, countPlayer);
+            countPlayer++;
+        });
+    }
+
+    //assign stratagems to players
+    assignStratagems = () => {
+
+        const playerArray = _.range(this.state.playerNumber);
+
+        _.forEach(playerArray, (playerNo) => {
+
+            let loadouts = this.db.get('selectedLoadouts').filter({ type1: 'stratagems', player: null }).value();
+            let remainingStratagems = this.db.get('selectedLoadouts').filter({ type1: 'stratagems', player: playerNo }).value();
+            remainingStratagems = 4 - (remainingStratagems.length);
+
+            if (loadouts.length > 0 && remainingStratagems > 0) {
+
+                // console.log(`loadouts.length=${loadouts.length}, remainingStratagems=${remainingStratagems}`);
+
+                loadouts = randomizer.sample(_.map(loadouts, 'id'), Math.min(loadouts.length, remainingStratagems), false);
+                _.forEach(loadouts, (loadoutId) => {
+                    this.updateAssign(loadoutId.toString(), playerNo, 'PPOP');
+                });
+            }
+        });
+    }
+
+    //to handle perks that relies on stratagems
+    customStratagemPriority = () => {
+
+        // const specialPerks = ['precision-call', 'stratagem-priority', 'strong-arm'];
+        const specialPerks = ['stratagem-priority', 'precision-call', 'strong-arm'];
+
+        //find special perks
+        let perks = this.db.get('selectedLoadouts').filter((record) => {
+            return specialPerks.includes(record.code)
+        }).value();
+
+        //skip if zero
+        if (perks.length === 0) {
+            return;
+        }
+
+        //actual process is here
+        _.forEach(perks, (perk) => {
+            perk.totalStratagemsLeft = randomizer.sample([2, 3, 4], 1, [60, 30, 10]); //set number of stratagems to give
+            perk.stratagems = [];
+        });
+
+        //we going to give the stratagems using round-robin method
+        let continueIt = true;
+        while (continueIt === true) {
+
+            //shuffle the turns
+            let loopWatcher = 0;
+            perks = _.shuffle(perks);
+
+            //process for each turns
+            _.forEach(perks, (perk) => {
+
+                loopWatcher += perk.totalStratagemsLeft;
+
+                if (perk.totalStratagemsLeft > 0) { //if still got things to process, then do it
+
+                    perk.totalStratagemsLeft--;
+                    let customStratagems = null;
+
+                    switch (perk.code) {
+                        case 'stratagem-priority':
+
+                            //get related stratagems
+                            customStratagems = this.db.get('selectedLoadouts').filter((record) => {
+                                return (
+                                    record.player === null &&
+                                    record.type1 === 'stratagems' &&
+                                    record.attr_cooldown > 10 //do not want to take too short cooldown stratagems
+                                )
+                            }).value();
+
+                            //pick random stratagems. longer cooldown has higher odds. then assign it
+                            if (customStratagems.length > 0) {
+                                let loadoutId = randomizer.sample(_.map(customStratagems, 'id'), 1, true, _.map(customStratagems, 'attr_cooldown')).toString();
+                                // console.log(`ASSIGN PLAYER_${(perk.player + 1)} WITH ${this.db.get('selectedLoadouts').find({ id: loadoutId }).value().code}`);
+                                this.updateAssign(loadoutId, perk.player, 'ASDF1');
+                            }
+                            break;
+
+                        case 'precision-call':
+
+                            //get related stratagems
+                            customStratagems = this.db.get('selectedLoadouts').filter((record) => {
+                                return (
+                                    record.player === null &&
+                                    record.type1 === 'stratagems' &&
+                                    _.isInteger(record.attr_callin) &&
+                                    record.attr_callin >= 0
+                                )
+                            }).value();
+
+                            //pick random stratagems
+                            if (customStratagems.length > 0) {
+                                let loadoutId = randomizer.sample(_.map(customStratagems, 'id'), 1).toString();
+                                // console.log(`ASSIGN PLAYER_${(perk.player + 1)} WITH ${this.db.get('selectedLoadouts').find({ id: loadoutId }).value().code}`);
+                                this.updateAssign(loadoutId, perk.player, 'ASDF2');
+                            }
+                            break;
+
+                        case 'strong-arm':
+
+                            //get related stratagems
+                            customStratagems = this.db.get('selectedLoadouts').filter((record) => {
+                                return (
+                                    record.player === null &&
+                                    record.type1 === 'stratagems' &&
+                                    record.attr_strongarm > 0
+                                )
+                            }).value();
+
+                            //pick random stratagems
+                            if (customStratagems.length > 0) {
+                                let loadoutId = randomizer.sample(_.map(customStratagems, 'id'), 1, _.map(customStratagems, 'attr_strongarm')).toString();
+                                // console.log(`ASSIGN PLAYER_${(perk.player + 1)} WITH ${this.db.get('selectedLoadouts').find({ id: loadoutId }).value().code}`);
+                                this.updateAssign(loadoutId, perk.player, 'ASDF3');
+                            }
+                            break;
+
+                        default:
+                        //do nothing
+                    }
+                }
+            });
+
+            if (0 >= loopWatcher) {
+                continueIt = false;
+            }
+        }
+    }
+
+    //player to receive only one secondary weapon
+    customUniqueSecondary = () => {
+        let unequipLoadouts = this.db.get('selectedLoadouts').filter({ type1: 'stratagems', type2: 'Secondary', player: null }).value();
+        if (unequipLoadouts.length > 0) {
+            let loadouts = this.db.get('selectedLoadouts').filter({ type1: 'stratagems', type2: 'Secondary' }).value();
+            let availablePlayers = _.shuffle(_.difference(_.range(this.state.playerNumber), _.map(loadouts, 'player')));
+
+            _.forEach(unequipLoadouts, (unequipLoadout) => {
+
+                if (availablePlayers.length === 0) {
+                    return;
+                }
+
+                let assignToPlayer = availablePlayers.pop();
+
+                let totalStratagem = this.db.get('selectedLoadouts').filter((record) => {
+                    return (
+                        record.type1 === 'stratagems' &&
+                        record.player === assignToPlayer
+                    )
+                }).value().length;
+
+                // console.log(`code=${unequipLoadout.code}, totalStratagem=${totalStratagem}, assignToPlayer=${(assignToPlayer + 1)}`);
+
+                if (totalStratagem >= 4) {
+                    return;
+                }
+
+                this.updateAssign(unequipLoadout.id, assignToPlayer, '2ndary');
+            });
+        }
+    }
+
+    //player to receive only one backpack
+    customUniqueBackpack = () => {
+        let unequipLoadouts = this.db.get('selectedLoadouts').filter((record) => {
+            return (
+                record.type1 === 'stratagems' && record.attr_backpack > 0 && record.player === null
+            )
+        }).value();
+        if (unequipLoadouts.length > 0) {
+            let loadouts = this.db.get('selectedLoadouts').filter((record) => {
+                return (
+                    record.type1 === 'stratagems' && record.attr_backpack > 0
+                )
+            }).value();
+            let availablePlayers = _.shuffle(_.difference(_.range(this.state.playerNumber), _.map(loadouts, 'player')));
+
+            _.forEach(unequipLoadouts, (unequipLoadout) => {
+
+                if (availablePlayers.length === 0) {
+                    return;
+                }
+
+                let assignToPlayer = availablePlayers.pop();
+
+                let totalStratagem = this.db.get('selectedLoadouts').filter((record) => {
+                    return (
+                        record.type1 === 'stratagems' &&
+                        record.player === assignToPlayer
+                    )
+                }).value().length;
+
+                // console.log(`code=${unequipLoadout.code}, totalStratagem=${totalStratagem}, assignToPlayer=${(assignToPlayer + 1)}`);
+
+                if (totalStratagem >= 4) {
+                    return;
+                }
+
+                this.updateAssign(unequipLoadout.id, assignToPlayer, 'b6pk');
+            });
+        }
+    }
+
+    //assign selectedLoadouts to player
+    updateAssign = (loadoutId, playerNumber, debug = '') => {
+
+        if (debug !== '') {
+            // console.log(`(${debug}) ASSIGN ${this.db.get('selectedLoadouts').find({ id: loadoutId }).value().code} TO PLAYER ${(playerNumber + 1)}`);
+        }
+
+        this.db.get('selectedLoadouts').find({ id: loadoutId }).assign({ player: playerNumber }).write();
+    }
+
+    //sort the loadout according to the state required design
+    sortingLoadout = () => {
+
+        //player loadouts
         let selectedLoadouts = new BlankLoadout();
 
-        let loadouts = null;
-        let countPlayer = 0;
+        const playerArray = _.range(this.state.playerNumber);
+        _.forEach(playerArray, (playerNo) => {
 
-        countPlayer = 0;
-        loadouts = this.db.get('selectedLoadouts').filter({ type1: 'weapon-main' }).value();
-        _.forEach(loadouts, (loadout) => {
-            selectedLoadouts[countPlayer]['weapon'] = {
+            //sorting weapon
+            let loadout = this.db.get('selectedLoadouts').find({ type1: 'weapon-main', player: playerNo }).value();
+            selectedLoadouts[playerNo]['weapon'] = {
                 code: loadout.code,
                 name: loadout.name,
                 fix: loadout.fix,
             };
-            countPlayer++;
-        });
 
-        countPlayer = 0;
-        loadouts = this.db.get('selectedLoadouts').filter({ type1: 'perks' }).value();
-        _.forEach(loadouts, (loadout) => {
-            selectedLoadouts[countPlayer]['perk'] = {
+            //sorting perk
+            loadout = this.db.get('selectedLoadouts').find({ type1: 'perks', player: playerNo }).value();
+            selectedLoadouts[playerNo]['perk'] = {
                 code: loadout.code,
                 name: loadout.name,
                 fix: loadout.fix,
             };
-            countPlayer++;
-        });
 
-        countPlayer = 0;
-        loadouts = this.db.get('selectedLoadouts').filter({ type1: 'stratagems' }).value();
-        _.forEach(loadouts, (loadout) => {
-            selectedLoadouts[countPlayer % this.state.playerNumber]['stratagems'].push({
-                code: loadout.code,
-                name: loadout.name,
-                style: loadout.style,
-                fix: loadout.fix,
+            //sorting stratagemns
+            let loadouts = this.db.get('selectedLoadouts').filter({ type1: 'stratagems', player: playerNo }).value();
+            loadouts = _.shuffle(loadouts);
+            _.forEach(loadouts, (loadout) => {
+                selectedLoadouts[playerNo]['stratagems'].push({
+                    code: loadout.code,
+                    name: loadout.name,
+                    style: loadout.style,
+                    fix: loadout.fix,
+                });
             });
-            countPlayer++;
         });
 
-        // console.log(loadouts);
+        // console.log(this.db.get('selectedLoadouts').value());
         // console.log(selectedLoadouts);
         return selectedLoadouts;
     }
-
 }
 
 export default GenerateLoadout;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Container, Row, Label, Jumbotron } from 'reactstrap';
+import { Container, Row, Label, Jumbotron, Col } from 'reactstrap';
 import BlankLoadout from './db/BlankLoadout';
 import PlayerBlock from './components/PlayerBlock';
 import InputForm from './components/InputForm';
@@ -11,7 +11,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      playerNumber: 2,
+      playerNumber: 4,
       missionType: 'objective',
       antiTankPower: 'YES',
       terrainAssistance: 'allterrain1',
@@ -62,10 +62,7 @@ class App extends Component {
   //generate the loadout
   generateLoadout = (event) => {
     let playerLoadout = new GenerateLoadout(this.state);
-    let finalLoadout = playerLoadout.generateLoadout();
-    console.log('FINAL LOADOUT');
-    console.log(finalLoadout);
-    this.setState({ loadout: finalLoadout });
+    this.setState({ loadout: playerLoadout.generateLoadout() });
   }
 
   render() {
@@ -94,15 +91,16 @@ class App extends Component {
             setTerrainAssistance={this.setTerrainAssistance}
             setAntiTankPower={this.setAntiTankPower}
           />
-          <hr />
 
           {/* random loadout */}
+          <Row><Col>&nbsp;</Col></Row>
           <Row>
             <PlayerBlock {...this.state.loadout[0]} />
             <PlayerBlock {...this.state.loadout[1]} />
             <PlayerBlock {...this.state.loadout[2]} />
             <PlayerBlock {...this.state.loadout[3]} />
           </Row>
+          <Row><Col>&nbsp;</Col></Row>
         </Container>
       </React.Fragment >
     );
