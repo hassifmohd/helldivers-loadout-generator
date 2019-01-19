@@ -11,24 +11,52 @@
   color: #61dafb;
 }
 
+.cardWeapon {
+  background-color: rgba(10, 10, 10, 0.9);
+}
+
 .weapon {
   background-color: rgba(10, 10, 10, 0.9);
-  height: 75px;
+  width: 100%;
 }
 
 .defense {
   background-color: rgb(125, 159, 99);
-  height: 75px;
+  width: 100%;
 }
 
 .support {
   background-color: rgb(76, 116, 161);
-  height: 75px;
+  width: 100%;
 }
 
 .offensive {
   background-color: rgb(139, 91, 81);
-  height: 75px;
+  width: 100%;
+}
+
+.stratagemBlock {
+  margin-bottom: 0px !important;
+}
+
+.playerBlock {
+  margin-top: 5px;
+}
+
+.jumbotron {
+  padding-bottom: 5px !important;
+}
+
+.nodeLong {
+  margin-bottom: 3px;
+}
+
+.nodeShort {
+  margin: 0px 1px 2px 1px;
+}
+
+.stratagemTblCol {
+  width: 150px;
 }
 
 .agift {
