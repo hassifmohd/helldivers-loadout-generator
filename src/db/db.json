@@ -238,7 +238,10 @@
             "taken": 0,
             "atr_resupply": 100,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "weapon-main",
@@ -250,7 +253,10 @@
             "taken": 0,
             "atr_resupply": 150,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "weapon-main",
@@ -262,7 +268,10 @@
             "taken": 0,
             "atr_resupply": 100,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "weapon-main",
@@ -274,7 +283,10 @@
             "taken": 0,
             "atr_resupply": 200,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "weapon-main",
@@ -286,7 +298,10 @@
             "taken": 0,
             "atr_resupply": 100,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "weapon-main",
@@ -298,7 +313,10 @@
             "taken": 0,
             "atr_resupply": 200,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "weapon-main",
@@ -310,7 +328,10 @@
             "taken": 0,
             "atr_resupply": 100,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "weapon-main",
@@ -322,7 +343,10 @@
             "taken": 0,
             "atr_resupply": 100,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "weapon-main",
@@ -334,7 +358,10 @@
             "taken": 0,
             "atr_resupply": 100,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "weapon-main",
@@ -346,7 +373,10 @@
             "taken": 0,
             "atr_resupply": 150,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "weapon-main",
@@ -358,7 +388,10 @@
             "taken": 0,
             "atr_resupply": 100,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "weapon-main",
@@ -370,7 +403,10 @@
             "taken": 0,
             "atr_resupply": 100,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "weapon-main",
@@ -382,7 +418,10 @@
             "taken": 0,
             "atr_resupply": 100,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "weapon-main",
@@ -394,7 +433,10 @@
             "taken": 0,
             "atr_resupply": 100,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "weapon-main",
@@ -406,7 +448,10 @@
             "taken": 0,
             "atr_resupply": 100,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "weapon-main",
@@ -418,7 +463,10 @@
             "taken": 0,
             "atr_resupply": 100,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "weapon-main",
@@ -430,7 +478,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "weapon-main",
@@ -442,7 +493,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "weapon-main",
@@ -454,7 +508,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "weapon-main",
@@ -466,7 +523,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "weapon-main",
@@ -478,7 +538,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "weapon-main",
@@ -490,7 +553,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "perks",
@@ -502,7 +568,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "perks",
@@ -514,7 +583,10 @@
             "taken": 0,
             "atr_resupply": 75,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "perks",
@@ -526,7 +598,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "perks",
@@ -538,7 +613,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "perks",
@@ -550,7 +628,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "perks",
@@ -562,7 +643,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "perks",
@@ -574,7 +658,10 @@
             "taken": 0,
             "atr_resupply": 75,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "perks",
@@ -586,7 +673,10 @@
             "taken": 0,
             "atr_resupply": 75,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "perks",
@@ -598,7 +688,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "perks",
@@ -610,7 +703,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "perks",
@@ -622,7 +718,10 @@
             "taken": 0,
             "atr_resupply": 75,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "perks",
@@ -634,7 +733,10 @@
             "taken": 0,
             "atr_resupply": 75,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "perks",
@@ -646,7 +748,10 @@
             "taken": 0,
             "atr_resupply": 75,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "perks",
@@ -658,7 +763,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "perks",
@@ -670,7 +778,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "stratagems",
@@ -682,7 +793,10 @@
             "taken": 0,
             "atr_resupply": 0,
             "attr_cooldown": 180,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": 5,
+            "attr_strongarm": null
         },
         {
             "type1": "stratagems",
@@ -694,7 +808,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "stratagems",
@@ -706,7 +823,10 @@
             "taken": 0,
             "atr_resupply": 25,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 1,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "stratagems",
@@ -718,7 +838,10 @@
             "taken": 0,
             "atr_resupply": 25,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 1,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "stratagems",
@@ -730,7 +853,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 2,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "stratagems",
@@ -742,7 +868,10 @@
             "taken": 0,
             "atr_resupply": 0,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 1,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "stratagems",
@@ -754,7 +883,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 1,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "stratagems",
@@ -766,7 +898,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 1,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "stratagems",
@@ -778,7 +913,10 @@
             "taken": 0,
             "atr_resupply": 100,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "stratagems",
@@ -790,7 +928,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": null,
-            "attr_atpower": 100
+            "attr_atpower": 100,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "stratagems",
@@ -802,7 +943,10 @@
             "taken": 0,
             "atr_resupply": 50,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "stratagems",
@@ -814,7 +958,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "stratagems",
@@ -826,7 +973,10 @@
             "taken": 0,
             "atr_resupply": 50,
             "attr_cooldown": null,
-            "attr_atpower": 60
+            "attr_atpower": 100,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "stratagems",
@@ -838,7 +988,10 @@
             "taken": 0,
             "atr_resupply": 100,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "stratagems",
@@ -850,7 +1003,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "stratagems",
@@ -862,7 +1018,10 @@
             "taken": 0,
             "atr_resupply": 50,
             "attr_cooldown": null,
-            "attr_atpower": 100
+            "attr_atpower": 100,
+            "attr_backpack": 1,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "stratagems",
@@ -874,7 +1033,10 @@
             "taken": 0,
             "atr_resupply": 75,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "stratagems",
@@ -886,7 +1048,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": 180,
-            "attr_atpower": 100
+            "attr_atpower": 100,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "stratagems",
@@ -898,7 +1063,10 @@
             "taken": 0,
             "atr_resupply": 50,
             "attr_cooldown": null,
-            "attr_atpower": 100
+            "attr_atpower": 100,
+            "attr_backpack": 1,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "stratagems",
@@ -910,7 +1078,10 @@
             "taken": 0,
             "atr_resupply": 75,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "stratagems",
@@ -922,7 +1093,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "stratagems",
@@ -934,7 +1108,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "stratagems",
@@ -946,7 +1123,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": null,
-            "attr_atpower": 80
+            "attr_atpower": 80,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "stratagems",
@@ -958,7 +1138,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "stratagems",
@@ -970,7 +1153,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": null,
-            "attr_atpower": 80
+            "attr_atpower": 80,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "stratagems",
@@ -982,7 +1168,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": null,
-            "attr_atpower": 60
+            "attr_atpower": 60,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "stratagems",
@@ -994,7 +1183,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "stratagems",
@@ -1006,7 +1198,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": 180,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": 1
         },
         {
             "type1": "stratagems",
@@ -1018,7 +1213,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": 120,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": 1
         },
         {
             "type1": "stratagems",
@@ -1030,7 +1228,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": 180,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": 1
         },
         {
             "type1": "stratagems",
@@ -1042,7 +1243,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": 120,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": 1
         },
         {
             "type1": "stratagems",
@@ -1054,7 +1258,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": 45,
-            "attr_atpower": 40
+            "attr_atpower": 40,
+            "attr_backpack": 0,
+            "attr_callin": 5,
+            "attr_strongarm": 3
         },
         {
             "type1": "stratagems",
@@ -1066,7 +1273,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": 30,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": 5,
+            "attr_strongarm": 2
         },
         {
             "type1": "stratagems",
@@ -1078,7 +1288,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": 5,
+            "attr_strongarm": 1
         },
         {
             "type1": "stratagems",
@@ -1090,7 +1303,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": 180,
-            "attr_atpower": 100
+            "attr_atpower": 100,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": 1
         },
         {
             "type1": "stratagems",
@@ -1102,7 +1318,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": 120,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": 1
         },
         {
             "type1": "stratagems",
@@ -1114,7 +1333,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": null,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": null
         },
         {
             "type1": "stratagems",
@@ -1126,7 +1348,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": 100,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": 3
         },
         {
             "type1": "stratagems",
@@ -1138,7 +1363,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": 90,
-            "attr_atpower": 80
+            "attr_atpower": 80,
+            "attr_backpack": 0,
+            "attr_callin": 2,
+            "attr_strongarm": 2
         },
         {
             "type1": "stratagems",
@@ -1150,7 +1378,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": 75,
-            "attr_atpower": 60
+            "attr_atpower": 60,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": 2
         },
         {
             "type1": "stratagems",
@@ -1162,7 +1393,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": 35,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": 0,
+            "attr_strongarm": 2
         },
         {
             "type1": "stratagems",
@@ -1174,7 +1408,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": 45,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": 3,
+            "attr_strongarm": 3
         },
         {
             "type1": "stratagems",
@@ -1186,7 +1423,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": 180,
-            "attr_atpower": 60
+            "attr_atpower": 60,
+            "attr_backpack": 0,
+            "attr_callin": 2,
+            "attr_strongarm": 3
         },
         {
             "type1": "stratagems",
@@ -1198,7 +1438,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": 180,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": 2,
+            "attr_strongarm": 2
         },
         {
             "type1": "stratagems",
@@ -1210,7 +1453,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": 60,
-            "attr_atpower": 100
+            "attr_atpower": 100,
+            "attr_backpack": 0,
+            "attr_callin": 2,
+            "attr_strongarm": 2
         },
         {
             "type1": "stratagems",
@@ -1222,7 +1468,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": 210,
-            "attr_atpower": 40
+            "attr_atpower": 40,
+            "attr_backpack": 0,
+            "attr_callin": 6,
+            "attr_strongarm": 3
         },
         {
             "type1": "stratagems",
@@ -1234,7 +1483,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": 120,
-            "attr_atpower": 40
+            "attr_atpower": 40,
+            "attr_backpack": 0,
+            "attr_callin": 3,
+            "attr_strongarm": 2
         },
         {
             "type1": "stratagems",
@@ -1246,7 +1498,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": 45,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": 0,
+            "attr_strongarm": 3
         },
         {
             "type1": "stratagems",
@@ -1258,7 +1513,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": 10,
-            "attr_atpower": null
+            "attr_atpower": null,
+            "attr_backpack": 0,
+            "attr_callin": null,
+            "attr_strongarm": 2
         },
         {
             "type1": "stratagems",
@@ -1270,7 +1528,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": 180,
-            "attr_atpower": 40
+            "attr_atpower": 40,
+            "attr_backpack": 0,
+            "attr_callin": 4,
+            "attr_strongarm": 3
         },
         {
             "type1": "stratagems",
@@ -1282,7 +1543,10 @@
             "taken": 0,
             "atr_resupply": null,
             "attr_cooldown": 10,
-            "attr_atpower": 100
+            "attr_atpower": 100,
+            "attr_backpack": 0,
+            "attr_callin": 0,
+            "attr_strongarm": 2
         }
     ]
 }
