@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Container, Row, Label, Jumbotron, Col } from 'reactstrap';
+import { Container, Row, Label, Jumbotron, Col, NavbarBrand, Navbar } from 'reactstrap';
 import BlankLoadout from './db/BlankLoadout';
 import PlayerBlock from './components/PlayerBlock';
 import InputForm from './components/InputForm';
@@ -73,35 +73,36 @@ class App extends Component {
 
         {/* header */}
         <div>
-          <Jumbotron className="">
-            <h1>YOLODIVE</h1>
-            <hr className="my-2" />
-            <Label>Helldiver not-so-random loadout generator</Label>
+          <Jumbotron fluid>
+            <Container fluid>
+              <h1>YOLODIVE</h1>
+              <div>Helldiver not-so-random loadout generator</div>
+            </Container>
           </Jumbotron>
         </div>
 
-        <Container>
-          {/* input form */}
-          <InputForm
-            {...this.state}
-            setSampleHunt={this.setSampleHunt}
-            setMissionType={this.setMissionType}
-            setPlayerNumber={this.setPlayerNumber}
-            generateLoadout={this.generateLoadout}
-            setTerrainAssistance={this.setTerrainAssistance}
-            setAntiTankPower={this.setAntiTankPower}
-          />
+        <div>
+          <Container className="form">
+            {/* input form */}
+            <InputForm
+              {...this.state}
+              setSampleHunt={this.setSampleHunt}
+              setMissionType={this.setMissionType}
+              setPlayerNumber={this.setPlayerNumber}
+              generateLoadout={this.generateLoadout}
+              setTerrainAssistance={this.setTerrainAssistance}
+              setAntiTankPower={this.setAntiTankPower}
+            />
 
-          {/* random loadout */}
-          <Row><Col>&nbsp;</Col></Row>
-          <Row>
-            <PlayerBlock {...this.state.loadout[0]} />
-            <PlayerBlock {...this.state.loadout[1]} />
-            <PlayerBlock {...this.state.loadout[2]} />
-            <PlayerBlock {...this.state.loadout[3]} />
-          </Row>
-          <Row><Col>&nbsp;</Col></Row>
-        </Container>
+            {/* random loadout */}
+            <Row className="formRow">
+              <PlayerBlock {...this.state.loadout[0]} />
+              <PlayerBlock {...this.state.loadout[1]} />
+              <PlayerBlock {...this.state.loadout[2]} />
+              <PlayerBlock {...this.state.loadout[3]} />
+            </Row>
+          </Container>
+        </div>
       </React.Fragment >
     );
   }
