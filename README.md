@@ -7,7 +7,9 @@
 
 # Example
 
-You can access this generator here [https://obscure-fjord-71909.herokuapp.com/](https://obscure-fjord-71909.herokuapp.com/)
+You can access this generator here [https://safe-mesa-26635.herokuapp.com/](https://safe-mesa-26635.herokuapp.com/)
+
+Or here [https://obscure-fjord-71909.herokuapp.com/](https://obscure-fjord-71909.herokuapp.com/)
 
 # Additional features
 
