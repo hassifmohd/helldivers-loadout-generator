@@ -23,9 +23,18 @@ Below is the features for the 'not-so-random' generator
 | Anti-Tank | Need AT (anti-tank) but RNG is killing you? Opt-in and get random AT solution |
 | Perks | Perks like Strong Arm, Precision Call and Stratagem Priority will get some stratagems that related to hem |
 
+# Installation
+
+If you want to try this app in your local machine, then you need NodeJS installed
+
+```
+> git clone git@github.com:hassifmohd/helldivers-loadout-generator.git
+> npm install
+> npm start
+```
+
 # Development status
 
 - This app is create using facebook-create-react-app
 - Initially I just want to learn about React, therefore I am not going to put much effort in this project. However If you are interested just drop me a Pull Request
 - If you found any issues, feel free to report [here](https://github.com/hassifmohd/helldivers-loadout-generator/issues) but I am not guarantee any fixes 
-
